@@ -1,0 +1,148 @@
+/* ===== Estilos Formulario Musical ===== */
+#formulario-musical {
+  font-family: 'Poppins', sans-serif;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(270deg, #0f0c29, #302b63, #24243e);
+  background-size: 600% 600%;
+  animation: gradientBG 20s ease infinite;
+  position: relative;
+  overflow: hidden;
+  padding: 40px 15px;
+}
+
+@keyframes gradientBG {
+  0% {background-position: 0% 50%;}
+  50% {background-position: 100% 50%;}
+  100% {background-position: 0% 50%;}
+}
+
+.container-form {
+  position: relative;
+  width: 100%;
+  max-width: 420px;
+  background: rgba(255,255,255,0.08);
+  border-radius: 16px;
+  backdrop-filter: blur(12px);
+  padding: 35px 30px;
+  box-shadow: 0 8px 24px rgba(0,0,0,0.4);
+  text-align: center;
+  overflow: hidden;
+}
+
+/* Fondo animado */
+.background-animate {
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(circle, rgba(255,255,255,0.2) 2px, transparent 2px);
+  background-size: 40px 40px;
+  animation: moveBg 10s linear infinite;
+  z-index: 1;
+}
+
+@keyframes moveBg {
+  from {background-position: 0 0;}
+  to {background-position: 40px 40px;}
+}
+
+.formulario {
+  position: relative;
+  z-index: 2;
+}
+
+.form-title {
+  font-size: 2.2rem;
+  color: #fff;
+  margin-bottom: 10px;
+  font-weight: 700;
+}
+
+.form-subtitle {
+  color: rgba(255,255,255,0.8);
+  font-size: 0.9rem;
+  margin-bottom: 25px;
+}
+
+.input-group {
+  text-align: left;
+  margin-bottom: 18px;
+}
+
+.input-group label {
+  display: block;
+  color: #fff;
+  margin-bottom: 6px;
+  font-size: 0.95rem;
+}
+
+.input-group input,
+.input-group textarea {
+  width: 100%;
+  padding: 12px 14px;
+  border-radius: 10px;
+  border: none;
+  outline: none;
+  background: rgba(255,255,255,0.15);
+  color: #fff;
+  font-size: 1rem;
+  transition: transform 0.2s, background 0.3s;
+}
+
+.input-group input:focus,
+.input-group textarea:focus {
+  background: rgba(255,255,255,0.25);
+  transform: scale(1.02);
+}
+
+.btn-submit {
+  background: linear-gradient(45deg, #ff416c, #ff4b2b);
+  border: none;
+  border-radius: 30px;
+  padding: 12px 30px;
+  color: #fff;
+  font-size: 1rem;
+  font-weight: bold;
+  cursor: pointer;
+  transition: transform 0.2s, box-shadow 0.3s;
+}
+
+.btn-submit:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 6px 18px rgba(0,0,0,0.4);
+}
+
+/* Ondas musicales */
+.wave-container {
+  position: absolute;
+  bottom: -20px;
+  left: 0;
+  right: 0;
+  height: 100px;
+  z-index: 1;
+}
+
+.wave {
+  position: absolute;
+  bottom: 0;
+  width: 200%;
+  height: 100%;
+  background: rgba(255,255,255,0.07);
+  border-radius: 100% 100% 0 0;
+  animation: waveMove 6s infinite linear;
+}
+
+.wave:nth-child(2) {animation-duration: 8s; opacity: 0.5;}
+.wave:nth-child(3) {animation-duration: 10s; opacity: 0.3;}
+
+@keyframes waveMove {
+  from {transform: translateX(0);}
+  to {transform: translateX(-50%);}
+}
+
+/* Responsivo */
+@media (max-width: 400px) {
+  .form-title { font-size: 1.7rem; }
+  .btn-submit { width: 100%; }
+}

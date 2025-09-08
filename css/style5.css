@@ -1,0 +1,99 @@
+/* Global Styles */
+*, *::after, *::before {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root {
+    --font: calibri;
+    --main-clr: #0ebac5;
+}
+
+/* The page */
+body {
+    background-color: rgb(15 23 42);
+}
+
+.main {
+    display: grid;
+    grid-template-columns: repeat(1 1fr);
+    place-items: center;
+    height: 100vh;
+}
+
+.btn {
+    background-color: #0ebac5;
+    border: 1px solid #0ebac5;
+    padding: 1em 2em;
+    user-select: none;
+    margin: 0 8px;
+    cursor: pointer;
+    position: relative;
+    background: none;
+    color: #000000;
+    overflow: hidden;
+}
+
+.btn::before, .btn::after {
+    content: "";
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    display: block;
+    background: #0ebac5;
+    top: 0;
+    left: 0;
+    z-index: -1;
+    transform: scaleX(0);
+    transition: background 0.5s, transform 0.5s, opacity 0.5s ease-in;
+}
+
+.btn::before {
+    left: -30%;
+}
+
+.btn::after {
+    right: -30%;
+}
+
+.btn:hover::after {
+    transform: scale(1);
+}
+
+/* Element Two */
+.two::after{
+    transform: scaleY(0);
+}
+
+/* Element Three */
+.three::after{
+    width: 100%;
+    height: 0;
+    transform: translate(-50%, -50%) rotate(-45deg);
+}
+
+.three:hover::after{
+    height: 380%;
+}
+
+/* Element Three */
+.four::after{
+    width: 100%;
+    height: 0;
+    transform: translate(50%, 50%) skewY(45deg);
+}
+
+.four:hover::after{
+    height: 380%;
+}
+
+.btn:active {
+    transform: translateY(2px);
+}
+
+@media screen and (max-width:500px) {
+    .btn {
+        margin: 1em 2em;
+    }
+}
