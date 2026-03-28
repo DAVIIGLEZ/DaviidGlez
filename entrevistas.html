@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+<html class="wide wow-animation" lang="en">
+  <head>
+    <title>Entrevistas</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, height=device-height, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <link rel="icon" href="imagenes/logo.png">
+    <link rel="stylesheet" type="text/css" href="//fonts.googleapis.com/css?family=Lato:400,700%7COpen+Sans:400,600,700%7CSource+Code+Pro:300,400,500,600,700,900%7CNothing+You+Could+Do%7CPoppins:400,500">
+    <link rel="stylesheet" href="css/bootstrap.css">
+    <link rel="stylesheet" href="css/fonts.css">
+    <link rel="stylesheet" href="css/style.css">
+    <style>
+      .ie-panel {
+        display: none;
+        background: #212121;
+        padding: 10px 0;
+        box-shadow: 3px 3px 5px 0 rgba(0,0,0,.3);
+        clear: both;
+        text-align: center;
+        position: relative;
+        z-index: 1;
+      }
+      html.ie-10 .ie-panel, html.lt-ie-10 .ie-panel {display: block;}
+
+      /* 🔹 Ajuste del logo */
+      .rd-navbar-brand img {
+        max-height: 50px;
+        width: auto;
+        display: block;
+      }
+
+      /* 🔹 Alineación vertical entre botón y logo */
+      .rd-navbar-panel {
+        display: flex;
+        align-items: center;
+        gap: 12px;
+      }
+
+      /* 🔹 Logo más pequeño en móviles */
+      @media (max-width: 768px) {
+        .rd-navbar-brand img {
+          max-height: 40px;
+        }
+      }
+
+      /* 🔹 CORRECCIÓN DE ESPACIADO */
+      body {
+        padding-top: 60px; /* Ajusta según la altura de tu navbar */
+      }
+
+      /* Eliminar espacio extra del swiper vacío */
+      .swiper-container.swiper-slider-1 {
+        display: none; /* Ocultar completamente ya que está vacío */
+      }
+
+      /* Reducir padding superior de la sección de entrevistas */
+      .section-entrevistas {
+        padding-top: 20px !important; /* Reducir espacio superior */
+        padding-bottom: 80px;
+      }
+
+      /* Ajuste para mejor espaciado sin título */
+      .section-entrevistas {
+        padding-top: 10px !important; /* Espacio mínimo superior */
+      }
+    </style>
+  </head>
+  <body>
+    <div class="ie-panel">
+      <a href="http://windows.microsoft.com/en-US/internet-explorer/">
+        <img src="images/ie8-panel/warning_bar_0000_us.jpg" height="42" width="820"
+          alt="You are using an outdated browser. For a faster, safer browsing experience, upgrade for free today.">
+      </a>
+    </div>
+    <div class="preloader">
+      <div class="preloader-body">
+        <div class="cssload-container"></div>
+      </div>
+    </div>
+    <div class="page">
+      <!-- Banner -->
+      <a class="section section-banner d-none d-xl-block section-banner-top" href="" target="blank"
+        style="background-image: url(images/banner/background-02-1920x60.jpg); background-image: -webkit-image-set(url(images/banner/background-02-1920x60.jpg) 1x, url(images/banner/background-02-3840x120.jpg) 2x)">
+        <img src="images/banner/foreground-02-1600x60.png"
+          srcset="images/banner/foreground-02-1600x60.png 1x, images/banner/foreground-02-3200x120.png 2x"
+          alt="" width="1600" height="310">
+      </a>
+
+      <!-- Page Header-->
+      <header class="section page-header">
+        <div class="rd-navbar-wrap" style="position: fixed; top: 0; width: 100%; z-index: 100;">
+          <nav class="rd-navbar rd-navbar-classic"
+            data-layout="rd-navbar-fixed"
+            data-sm-layout="rd-navbar-fixed"
+            data-md-layout="rd-navbar-fixed"
+            data-md-device-layout="rd-navbar-fixed"
+            data-lg-layout="rd-navbar-fixed"
+            data-lg-device-layout="rd-navbar-fixed"
+            data-xl-layout="rd-navbar-static"
+            data-xl-device-layout="rd-navbar-static"
+            data-xxl-layout="rd-navbar-static"
+            data-xxl-device-layout="rd-navbar-static"
+            data-lg-stick-up-offset="46px"
+            data-xl-stick-up-offset="46px"
+            data-xxl-stick-up-offset="46px"
+            data-lg-stick-up="true"
+            data-xl-stick-up="true"
+            data-xxl-stick-up="true">
+            
+            <div class="rd-navbar-main-outer">
+              <div class="rd-navbar-main">
+                <!-- Navbar Panel -->
+                <div class="rd-navbar-panel">
+                  <!-- Botón hamburguesa -->
+                  <button class="rd-navbar-toggle" data-rd-navbar-toggle=".rd-navbar-nav-wrap"><span></span></button>
+                  <!-- Logo -->
+                  <div class="rd-navbar-brand">
+                    <a class="brand" href="entrevistas.html">
+                      <img src="imagenes/logo.png" alt="Logo">
+                    </a>
+                  </div>
+                </div>
+
+                <!-- Menú -->
+                <div class="rd-navbar-main-element">
+                  <div class="rd-navbar-nav-wrap">
+                    <ul class="rd-navbar-nav">
+                      <li class="rd-nav-item active"><a class="rd-nav-link" href="princi.html">INICIO</a></li>
+                      <li class="rd-nav-item"><a class="rd-nav-link" href="Videos.html">VIDEOS</a></li>
+                      <li class="rd-nav-item"><a class="rd-nav-link" href="about.html">BIOGRAFIA</a></li>
+                      <li class="rd-nav-item"><a class="rd-nav-link" href="galeria.html">GALERIA</a></li>
+                      <li class="rd-nav-item"><a class="rd-nav-link" href="entrevistas.html">ENTREVISTAS</a></li>
+                      <li class="rd-nav-item"><a class="rd-nav-link" href="show en vivo/index.html">SHOW EN VIVO</a></li>
+                      <li class="rd-nav-item"><a class="rd-nav-link" href="Formulario.html">CONTACTANOS</a></li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </nav>
+        </div>
+      </header>
+
+      <!-- Entrevistas - Agregué clase personalizada y eliminé section-lg -->
+      <section class="section section-entrevistas bg-default text-center">
+        <div class="container">
+          <h2>ENTREVISTAS</h2>
+          <div class="tabs-custom tabs-vertical tabs-video" id="tabs-2">
+            <!-- Contenido de videos -->
+            <div class="tab-content">
+              <!-- Video 1 -->
+              <div class="tab-pane fade show active" id="tabs-2-1">
+                <div class="entry-video embed-responsive embed-responsive-16by9">
+                  <iframe width="560" height="315"
+                    src="https://www.youtube.com/embed/qyyvpTWbCQ8"
+                    frameborder="0"
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                    allowfullscreen>
+                  </iframe>
+                </div>
+              </div>
+              <!-- Video 2 -->
+              <div class="tab-pane fade" id="tabs-2-2">
+                <div class="entry-video embed-responsive embed-responsive-16by9">
+                  <iframe width="560" height="315"
+                    src="https://www.youtube.com/embed/VIDEO_ID_2"
+                    frameborder="0"
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                    allowfullscreen>
+                  </iframe>
+                </div>
+              </div>
+              <!-- Video 3 -->
+              <div class="tab-pane fade" id="tabs-2-3">
+                <div class="entry-video embed-responsive embed-responsive-16by9">
+                  <iframe width="560" height="315"
+                    src="https://www.youtube.com/embed/VIDEO_ID_3"
+                    frameborder="0"
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                    allowfullscreen>
+                  </iframe>
+                </div>
+              </div>
+              <!-- Video 4 -->
+              <div class="tab-pane fade" id="tabs-2-4">
+                <div class="entry-video embed-responsive embed-responsive-16by9">
+                  <iframe width="560" height="315"
+                    src="https://www.youtube.com/embed/VIDEO_ID_4"
+                    frameborder="0"
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                    allowfullscreen>
+                  </iframe>
+                </div>
+              </div>
+              <!-- Video 5 -->
+              <div class="tab-pane fade" id="tabs-2-5">
+                <div class="entry-video embed-responsive embed-responsive-16by9">
+                  <iframe width="560" height="315"
+                    src="https://www.youtube.com/embed/VIDEO_ID_5"
+                    frameborder="0"
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                    allowfullscreen>
+                  </iframe>
+                </div>
+              </div>
+            </div>
+
+            <!-- Miniaturas -->
+            <div class="scroll-wrap">
+              <ul class="nav nav-tabs">
+                <li class="nav-item" role="presentation">
+                  <a class="nav-link active" href="#tabs-2-1" data-toggle="tab">
+                    <img src="imagenes/Caractula-1.jpg" alt="Video 1" width="140">
+                  </a>
+                </li>
+                <li class="nav-item" role="presentation">
+                  <a class="nav-link" href="#tabs-2-2" data-toggle="tab">
+                    <img src="imagenes/Proximante.jpg" alt="Video 2" width="140">
+                  </a>
+                </li>
+                <li class="nav-item" role="presentation">
+                  <a class="nav-link" href="#tabs-2-3" data-toggle="tab">
+                    <img src="imagenes/Proximante.jpg" alt="Video 3" width="140">
+                  </a>
+                </li>
+                <li class="nav-item" role="presentation">
+                  <a class="nav-link" href="#tabs-2-4" data-toggle="tab">
+                    <img src="imagenes/Proximante.jpg" alt="Video 4" width="140">
+                  </a>
+                </li>
+                <li class="nav-item" role="presentation">
+                  <a class="nav-link" href="#tabs-2-5" data-toggle="tab">
+                    <img src="imagenes/Proximante.jpg" alt="Video 5" width="140">
+                  </a>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Footer -->
+      <footer class="section footer-classic bg-default">
+        <div class="container">
+          <div class="row row-15">
+            <div class="col-sm-6">
+              <p class="rights">
+                <span>&copy;&nbsp;</span><span class="copyright-year"></span>
+                &nbsp;Todos los derechos reservados \ Diseño por el <a>Equipo de producción</a>
+              </p>
+            </div>
+          </div>
+        </div>
+      </footer>
+    </div>
+
+    <div class="snackbars" id="form-output-global"></div>
+    <script src="js/core.min.js"></script>
+    <script src="js/script.js"></script>
+  </body>
+</html>
