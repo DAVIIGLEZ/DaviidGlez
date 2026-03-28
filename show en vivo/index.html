@@ -371,6 +371,30 @@
   <!-- Javascript -->
   <script src="js/core.min.js"></script>
   <script src="js/script.js"></script>
+
+  <!-- FIX PRELOADER: se oculta apenas carga la página, sin depender de otros JS -->
+  <script>
+    (function() {
+      function hidePreloader() {
+        var pre = document.querySelector('.preloader');
+        if (pre) {
+          pre.style.transition = 'opacity 0.4s ease';
+          pre.style.opacity = '0';
+          setTimeout(function() { pre.style.display = 'none'; }, 400);
+        }
+      }
+      // Si la página ya cargó
+      if (document.readyState === 'complete') {
+        hidePreloader();
+      } else {
+        // En cuanto termine de cargar
+        window.addEventListener('load', hidePreloader);
+        // Seguro de seguridad: máximo 3 segundos aunque fallen otros scripts
+        setTimeout(hidePreloader, 3000);
+      }
+    })();
+  </script>
+
   <script>
     /* FIX: función loadYoutube definida UNA SOLA VEZ */
     function loadYoutube(button) {
