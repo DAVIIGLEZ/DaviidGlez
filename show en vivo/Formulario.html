@@ -1,0 +1,1194 @@
+<!DOCTYPE html>
+<html class="wide wow-animation" lang="en">
+  <head>
+    <title>CONTACTANOS</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, height=device-height, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <link rel="icon" href="imagenes/logo.png">
+    <link rel="stylesheet" type="text/css" href="//fonts.googleapis.com/css?family=Lato:400,700%7COpen+Sans:400,600,700%7CSource+Code+Pro:300,400,500,600,700,900%7CNothing+You+Could+Do%7CPoppins:400,500">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=Noto+Sans:wght@400;600&display=swap">
+    <link rel="stylesheet" href="css/bootstrap.css">
+    <link rel="stylesheet" href="css/fonts.css">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/cargando.css">
+    <link rel="stylesheet" href="css/cargando 2.css">
+    <style>
+      .ie-panel{display: none;background: #212121;padding: 10px 0;box-shadow: 3px 3px 5px 0 rgba(0,0,0,.3);clear: both;text-align:center;position: relative;z-index: 1;} 
+      html.ie-10 .ie-panel, html.lt-ie-10 .ie-panel {display: block;}
+      
+      /* 🔹 CORRECCIÓN DE ESPACIADO PARA NAVBAR FIJO */
+      body {
+        padding-top: 80px; /* Compensar altura del navbar fijo */
+      }
+
+      /* Ocultar slider vacío */
+      .swiper-container.swiper-slider-1 {
+        display: none;
+      }
+      
+      /* Estilos del formulario musical */
+      .contact-section {
+        min-height: calc(100vh - 80px); /* Ajustar altura considerando navbar */
+        background: linear-gradient(45deg, #0f0f23, #1a1a3e, #2d1b69, #800080);
+        background-size: 400% 400%;
+        animation: gradientShift 8s ease infinite;
+        position: relative;
+        overflow: hidden;
+        padding: 40px 0; /* Reducir padding superior */
+      }
+      
+      @keyframes gradientShift {
+        0% { background-position: 0% 50%; }
+        50% { background-position: 100% 50%; }
+        100% { background-position: 0% 50%; }
+      }
+      
+      /* Partículas musicales flotantes */
+      .music-particles {
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        overflow: hidden;
+        z-index: 1;
+      }
+      
+      .particle {
+        position: absolute;
+        color: rgba(255, 255, 255, 0.3);
+        font-size: 20px;
+        animation: float 6s infinite ease-in-out;
+      }
+      
+      @keyframes float {
+        0%, 100% { transform: translateY(100vh) rotate(0deg); opacity: 0; }
+        10% { opacity: 1; }
+        90% { opacity: 1; }
+        100% { transform: translateY(-100px) rotate(360deg); opacity: 0; }
+      }
+      
+      /* Ondas de audio animadas */
+      .audio-waves {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        z-index: 1;
+      }
+      
+      .wave {
+        width: 4px;
+        height: 40px;
+        background: linear-gradient(to top, #ff006e, #8338ec, #3a86ff);
+        margin: 0 2px;
+        border-radius: 2px;
+        display: inline-block;
+        animation: waveAnimation 1.5s infinite ease-in-out;
+      }
+      
+      .wave:nth-child(1) { animation-delay: 0s; }
+      .wave:nth-child(2) { animation-delay: 0.1s; }
+      .wave:nth-child(3) { animation-delay: 0.2s; }
+      .wave:nth-child(4) { animation-delay: 0.3s; }
+      .wave:nth-child(5) { animation-delay: 0.4s; }
+      .wave:nth-child(6) { animation-delay: 0.3s; }
+      .wave:nth-child(7) { animation-delay: 0.2s; }
+      .wave:nth-child(8) { animation-delay: 0.1s; }
+      
+      @keyframes waveAnimation {
+        0%, 100% { height: 20px; background: linear-gradient(to top, #ff006e, #8338ec); }
+        50% { height: 80px; background: linear-gradient(to top, #ff006e, #8338ec, #3a86ff, #06ffa5); }
+      }
+      
+      /* Formulario */
+      .form-container {
+        background: rgba(255, 255, 255, 0.1);
+        backdrop-filter: blur(20px);
+        border: 1px solid rgba(255, 255, 255, 0.2);
+        border-radius: 25px;
+        padding: 40px;
+        width: 100%;
+        max-width: 500px;
+        margin: 0 auto;
+        box-shadow: 
+          0 25px 45px rgba(0, 0, 0, 0.3),
+          0 0 60px rgba(138, 43, 226, 0.3),
+          inset 0 1px 0 rgba(255, 255, 255, 0.2);
+        animation: formFloat 6s ease-in-out infinite;
+        position: relative;
+        overflow: hidden;
+        z-index: 10;
+      }
+      
+      @keyframes formFloat {
+        0%, 100% { transform: translateY(0px); }
+        50% { transform: translateY(-10px); }
+      }
+      
+      .form-container::before {
+        content: '';
+        position: absolute;
+        top: -50%;
+        left: -50%;
+        width: 200%;
+        height: 200%;
+        background: conic-gradient(from 0deg, transparent, rgba(138, 43, 226, 0.3), transparent);
+        animation: rotate 8s linear infinite;
+        z-index: -1;
+      }
+      
+      @keyframes rotate {
+        from { transform: rotate(0deg); }
+        to { transform: rotate(360deg); }
+      }
+      
+      .form-title {
+        font-family: 'Orbitron', monospace;
+        font-size: 2.5rem;
+        font-weight: 900;
+        background: linear-gradient(45deg, #ff006e, #8338ec, #3a86ff, #06ffa5);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        background-clip: text;
+        text-align: center;
+        margin-bottom: 10px;
+        animation: titlePulse 3s ease-in-out infinite;
+        text-shadow: 0 0 30px rgba(131, 56, 236, 0.5);
+      }
+      
+      @keyframes titlePulse {
+        0%, 100% { transform: scale(1); filter: brightness(1); }
+        50% { transform: scale(1.05); filter: brightness(1.2); }
+      }
+      
+      .form-subtitle {
+        color: rgba(255, 255, 255, 0.8);
+        text-align: center;
+        margin-bottom: 30px;
+        font-size: 1.1rem;
+        animation: subtitleGlow 4s ease-in-out infinite;
+      }
+      
+      @keyframes subtitleGlow {
+        0%, 100% { text-shadow: 0 0 10px rgba(255, 255, 255, 0.3); }
+        50% { text-shadow: 0 0 20px rgba(255, 255, 255, 0.6); }
+      }
+      
+      /* Campos del formulario */
+      .form-group {
+        margin-bottom: 25px;
+        position: relative;
+      }
+      
+      .form-group label {
+        display: block;
+        color: rgba(255, 255, 255, 0.9);
+        margin-bottom: 8px;
+        font-weight: 600;
+        font-size: 0.95rem;
+        transition: all 0.3s ease;
+      }
+      
+      .form-group input,
+      .form-group select,
+      .form-group textarea {
+        width: 100%;
+        padding: 15px 20px;
+        background: rgba(255, 255, 255, 0.1);
+        border: 2px solid rgba(255, 255, 255, 0.2);
+        border-radius: 15px;
+        color: white;
+        font-size: 16px;
+        transition: all 0.4s ease;
+        backdrop-filter: blur(10px);
+      }
+      
+      .form-group input::placeholder,
+      .form-group textarea::placeholder {
+        color: rgba(255, 255, 255, 0.5);
+      }
+      
+      .form-group input:focus,
+      .form-group select:focus,
+      .form-group textarea:focus {
+        outline: none;
+        border-color: #8338ec;
+        background: rgba(255, 255, 255, 0.15);
+        box-shadow: 
+          0 0 20px rgba(131, 56, 236, 0.5),
+          inset 0 1px 0 rgba(255, 255, 255, 0.2);
+        transform: translateY(-3px);
+      }
+      
+      /* Estados de validación */
+      .form-group.valid input,
+      .form-group.valid select,
+      .form-group.valid textarea {
+        border-color: #06ffa5;
+        box-shadow: 
+          0 0 20px rgba(6, 255, 165, 0.5),
+          inset 0 1px 0 rgba(255, 255, 255, 0.2);
+      }
+      
+      .form-group.invalid input,
+      .form-group.invalid select,
+      .form-group.invalid textarea {
+        border-color: #ff006e;
+        box-shadow: 
+          0 0 20px rgba(255, 0, 110, 0.5),
+          inset 0 1px 0 rgba(255, 255, 255, 0.2);
+        animation: shakeError 0.5s ease-in-out;
+      }
+      
+      @keyframes shakeError {
+        0%, 100% { transform: translateX(0); }
+        25% { transform: translateX(-5px); }
+        75% { transform: translateX(5px); }
+      }
+      
+      .form-group input:focus + .form-icon,
+      .form-group select:focus + .form-icon,
+      .form-group textarea:focus + .form-icon {
+        color: #8338ec;
+        animation: iconBounce 0.6s ease;
+      }
+      
+      .form-group.valid .form-icon {
+        color: #06ffa5;
+        animation: successPulse 1s ease-in-out;
+      }
+      
+      .form-group.invalid .form-icon {
+        color: #ff006e;
+        animation: errorShake 0.5s ease-in-out;
+      }
+      
+      @keyframes iconBounce {
+        0%, 100% { transform: scale(1); }
+        50% { transform: scale(1.2); }
+      }
+      
+      @keyframes successPulse {
+        0%, 100% { transform: scale(1); }
+        50% { transform: scale(1.3); filter: brightness(1.5); }
+      }
+      
+      @keyframes errorShake {
+        0%, 100% { transform: translateX(0) scale(1); }
+        25% { transform: translateX(-3px) scale(1.1); }
+        75% { transform: translateX(3px) scale(1.1); }
+      }
+      
+      .form-icon {
+        position: absolute;
+        right: 15px;
+        top: 50%;
+        transform: translateY(-50%);
+        color: rgba(255, 255, 255, 0.5);
+        font-size: 20px;
+        transition: all 0.3s ease;
+        pointer-events: none;
+      }
+      
+      /* Mensajes de error musicales */
+      .error-message {
+        position: absolute;
+        bottom: -25px;
+        left: 15px;
+        color: #ff006e;
+        font-size: 0.85rem;
+        opacity: 0;
+        transform: translateY(-10px);
+        transition: all 0.3s ease;
+        font-weight: 600;
+        text-shadow: 0 0 10px rgba(255, 0, 110, 0.5);
+      }
+      
+      .form-group.invalid .error-message {
+        opacity: 1;
+        transform: translateY(0);
+        animation: errorMessageBounce 0.5s ease-out;
+      }
+      
+      @keyframes errorMessageBounce {
+        0% { transform: translateY(-10px) scale(0.8); opacity: 0; }
+        50% { transform: translateY(-5px) scale(1.1); opacity: 0.8; }
+        100% { transform: translateY(0) scale(1); opacity: 1; }
+      }
+      
+      /* Mensaje de éxito */
+      .success-message {
+        position: absolute;
+        bottom: -25px;
+        left: 15px;
+        color: #06ffa5;
+        font-size: 0.85rem;
+        opacity: 0;
+        transform: translateY(-10px);
+        transition: all 0.3s ease;
+        font-weight: 600;
+        text-shadow: 0 0 10px rgba(6, 255, 165, 0.5);
+      }
+      
+      .form-group.valid .success-message {
+        opacity: 1;
+        transform: translateY(0);
+        animation: successMessageGlow 0.5s ease-out;
+      }
+      
+      @keyframes successMessageGlow {
+        0% { transform: translateY(-10px) scale(0.8); opacity: 0; }
+        50% { transform: translateY(-5px) scale(1.1); opacity: 0.8; }
+        100% { transform: translateY(0) scale(1); opacity: 1; }
+      }
+      
+      /* Botón de envío */
+      .submit-btn {
+        width: 100%;
+        padding: 18px;
+        background: linear-gradient(45deg, #ff006e, #8338ec, #3a86ff);
+        background-size: 300% 300%;
+        border: none;
+        border-radius: 15px;
+        color: white;
+        font-size: 18px;
+        font-weight: 700;
+        font-family: 'Orbitron', monospace;
+        cursor: pointer;
+        transition: all 0.4s ease;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+        position: relative;
+        overflow: hidden;
+        animation: buttonGradient 3s ease infinite;
+      }
+      
+      @keyframes buttonGradient {
+        0% { background-position: 0% 50%; }
+        50% { background-position: 100% 50%; }
+        100% { background-position: 0% 50%; }
+      }
+      
+      .submit-btn:hover {
+        transform: translateY(-5px);
+        box-shadow: 
+          0 15px 35px rgba(131, 56, 236, 0.4),
+          0 0 30px rgba(255, 0, 110, 0.3);
+        animation-duration: 0.5s;
+      }
+      
+      .submit-btn:active {
+        transform: translateY(-2px);
+      }
+      
+      .submit-btn:disabled {
+        opacity: 0.7;
+        cursor: not-allowed;
+        transform: none;
+      }
+      
+      .submit-btn::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: -100%;
+        width: 100%;
+        height: 100%;
+        background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.3), transparent);
+        transition: left 0.6s ease;
+      }
+      
+      .submit-btn:hover::before {
+        left: 100%;
+      }
+      
+      /* Efectos adicionales */
+      .glow-effect {
+        position: absolute;
+        width: 300px;
+        height: 300px;
+        background: radial-gradient(circle, rgba(138, 43, 226, 0.3) 0%, transparent 70%);
+        border-radius: 50%;
+        top: -150px;
+        right: -150px;
+        animation: glowMove 10s ease-in-out infinite;
+        z-index: 2;
+      }
+      
+      @keyframes glowMove {
+        0%, 100% { transform: translate(0, 0) scale(1); }
+        33% { transform: translate(-100px, 100px) scale(1.2); }
+        66% { transform: translate(50px, -50px) scale(0.8); }
+      }
+      
+      /* Notificación de envío */
+      .form-notification {
+        position: fixed;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%) scale(0);
+        background: rgba(0, 0, 0, 0.9);
+        color: white;
+        padding: 30px;
+        border-radius: 20px;
+        text-align: center;
+        font-family: 'Orbitron', monospace;
+        font-size: 18px;
+        z-index: 10000;
+        backdrop-filter: blur(20px);
+        border: 2px solid rgba(138, 43, 226, 0.5);
+        transition: all 0.5s ease;
+      }
+      
+      .form-notification.show {
+        transform: translate(-50%, -50%) scale(1);
+      }
+      
+      .form-notification.success {
+        border-color: #06ffa5;
+        background: linear-gradient(45deg, rgba(6, 255, 165, 0.2), rgba(0, 210, 255, 0.2));
+      }
+      
+      .form-notification.error {
+        border-color: #ff006e;
+        background: linear-gradient(45deg, rgba(255, 0, 110, 0.2), rgba(255, 64, 0, 0.2));
+      }
+      
+      /* Responsive */
+      @media (max-width: 600px) {
+        body {
+          padding-top: 70px; /* Ajuste para móviles */
+        }
+        
+        .contact-section {
+          padding: 20px 0; /* Menos padding en móviles */
+        }
+        
+        .form-container {
+          padding: 25px;
+          margin: 10px;
+        }
+        
+        .form-title {
+          font-size: 2rem;
+        }
+        
+        .audio-waves {
+          transform: translate(-50%, -50%) scale(0.7);
+        }
+      }
+      
+      @keyframes explode {
+        0% {
+          transform: translate(0, 0) scale(0);
+          opacity: 1;
+        }
+        100% {
+          transform: translate(var(--x), var(--y)) scale(1);
+          opacity: 0;
+        }
+      }
+      
+      @keyframes fadeUp {
+        0% {
+          opacity: 1;
+          transform: translateY(0);
+        }
+        100% {
+          opacity: 0;
+          transform: translateY(-30px);
+        }
+      }
+    </style>
+  </head>
+  <body>
+
+    <div class="preloader">
+      <div class="preloader-body">
+        <div class="cssload-container">
+          <div class="container">
+            <div class="e-loadholder">
+              <div class="loading">
+                <div class="loading-text">
+                  <span class="loading-text-words">D</span>
+                  <span class="loading-text-words">A</span>
+                  <span class="loading-text-words">V</span>
+                  <span class="loading-text-words">I</span>
+                  <span class="loading-text-words">I</span>
+                  <span class="loading-text-words">D</span>
+                  <span class="loading-text-words">G</span>
+                  <span class="loading-text-words">L</span>
+                  <span class="loading-text-words">E</span>
+                  <span class="loading-text-words">Z</span>
+                  <div class="loader">
+                    <div class="inner one"></div>
+                    <div class="inner two"></div>
+                    <div class="inner three"></div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    
+    <div class="page">
+      <!-- Page Header-->
+      <header class="section page-header">
+        <!--RD Navbar-->
+        <div class="rd-navbar-wrap" style="position: fixed; top: 0; width: 100%; z-index: 100;">
+          <nav class="rd-navbar rd-navbar-classic" data-layout="rd-navbar-fixed" data-sm-layout="rd-navbar-fixed" data-md-layout="rd-navbar-fixed" data-md-device-layout="rd-navbar-fixed" data-lg-layout="rd-navbar-fixed" data-lg-device-layout="rd-navbar-fixed" data-xl-layout="rd-navbar-static" data-xl-device-layout="rd-navbar-static" data-xxl-layout="rd-navbar-static" data-xxl-device-layout="rd-navbar-static" data-lg-stick-up-offset="46px" data-xl-stick-up-offset="46px" data-xxl-stick-up-offset="46px" data-lg-stick-up="true" data-xl-stick-up="true" data-xxl-stick-up="true">
+            
+            <div class="rd-navbar-main-outer">
+              <div class="rd-navbar-main">
+                <!--RD Navbar Panel-->
+                <div class="rd-navbar-panel">
+                  <!--RD Navbar Toggle-->
+                  <button class="rd-navbar-toggle" data-rd-navbar-toggle=".rd-navbar-nav-wrap"><span></span></button>
+                  <!--RD Navbar Brand-->
+                  <div class="rd-navbar-brand">
+                    <!--Brand--><a class="brand" href="princi.html"><img src="imagenes/logo.png" alt="" width="90" height="15"/></a>
+                  </div>
+                </div>
+                <div class="rd-navbar-main-element">
+                  <div class="rd-navbar-nav-wrap">
+                    <ul class="rd-navbar-nav">
+                      <li class="rd-nav-item active"><a class="rd-nav-link" href="princi.html">INICIO</a></li>
+                      <li class="rd-nav-item active"><a class="rd-nav-link" href="Videos.html">VIDEOS</a></li>
+                      <li class="rd-nav-item"><a class="rd-nav-link" href="about.html">BIOGRAFIA</a></li>
+                      <li class="rd-nav-item"><a class="rd-nav-link" href="galeria.html">GALERIA</a></li>
+                      <li class="rd-nav-item"><a class="rd-nav-link" href="entrevistas.html">ENTREVISTAS</a></li>
+                      <li class="rd-nav-item"><a class="rd-nav-link" href="show en vivo/index.html">SHOW EN VIVO</a></li>
+                      <li class="rd-nav-item"><a class="rd-nav-link" href="Formulario.html">CONTACTANOS</a></li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </nav>
+        </div>
+      </header>
+
+      <!-- Sección del formulario musical - Optimizada -->
+      <section class="contact-section">
+        <!-- Partículas musicales -->
+        <div class="music-particles" id="particles"></div>
+        
+        <!-- Ondas de audio de fondo -->
+        <div class="audio-waves">
+          <div class="wave"></div>
+          <div class="wave"></div>
+          <div class="wave"></div>
+          <div class="wave"></div>
+          <div class="wave"></div>
+          <div class="wave"></div>
+          <div class="wave"></div>
+          <div class="wave"></div>
+        </div>
+        
+        <!-- Efecto de brillo -->
+        <div class="glow-effect"></div>
+        
+        <div class="container">
+          <div class="form-container">
+            <h1 class="form-title">🎵 CONTACTO 🎵</h1>
+            <p class="form-subtitle">¡Contacta para presentaciones de Daviid Glez!</p>
+            
+            <form id="contactForm" action="https://formspree.io/f/mgvlynjj" method="POST">
+              <div class="form-group">
+                <label for="name">Nombre</label>
+                <input type="text" id="name" name="name" placeholder="Tu nombre o nombre artístico" required>
+                <span class="form-icon">🎤</span>
+                <div class="error-message">🎵 ¡El ritmo necesita tu nombre!</div>
+                <div class="success-message">🎶 ¡Nombre perfecto!</div>
+              </div>
+              
+              <div class="form-group">
+                <label for="email">Correo Electrico</label>
+                <input type="email" id="email" name="email" placeholder="tu@email.com" required>
+                <span class="form-icon">📧</span>
+                <div class="error-message">🎵 ¡Necesitamos un correo válido para la sinfonía!</div>
+                <div class="success-message">📨 ¡Email en armonía!</div>
+              </div>
+              
+              <div class="form-group">
+                <label for="phone">Teléfono</label>
+                <input type="tel" id="phone" name="phone" placeholder="+57 300 123 4567">
+                <span class="form-icon">📱</span>
+                <div class="error-message">🎵 ¡Número de teléfono fuera de tempo!</div>
+                <div class="success-message">📞 ¡Número en perfecta afinación!</div>
+              </div>
+              
+              <div class="form-group">
+                <label for="service">Tipo de Servicio</label>
+                <select id="service" name="service" required>
+                  <option value="">Selecciona un servicio</option>
+                  <option value="produccion">🎹 Producción Musical</option>
+                  <option value="grabacion">🎙️ Grabación</option>
+                  <option value="mezcla">🎧 Mezcla y Masterización</option>
+                  <option value="composicion">✍️ Composición</option>
+                  <option value="colaboracion">🤝 Colaboración</option>
+                  <option value="evento">🎉 Eventos/Shows</option>
+                  <option value="otro">🎵 Otro</option>
+                </select>
+                <span class="form-icon">🎼</span>
+                <div class="error-message">🎵 ¡Elige el servicio que haga vibrar tu alma!</div>
+                <div class="success-message">🎶 ¡Servicio seleccionado con estilo!</div>
+              </div>
+              
+              <div class="form-group">
+                <label for="message">Cuéntanos tu proyecto</label>
+                <textarea id="message" name="message" rows="5" placeholder="Describe tu proyecto musical, ideas, o cualquier detalle que quieras compartir..." required></textarea>
+                <span class="form-icon">💭</span>
+                <div class="error-message">🎵 ¡Comparte tu melodía con nosotros!</div>
+                <div class="success-message">🎶 ¡Tu historia suena increíble!</div>
+              </div>
+              <div class="form-group">
+                <label>
+                  <input type="checkbox" id="acceptData" name="acceptData" required>
+                  He leído y acepto el tratamiento de mis datos personales de acuerdo con la <a href="politica-de-datos.html" target="_blank" style="color:#06ffa5;">Ley 1581 de Protección de Datos</a>
+                </label>
+                <div class="error-message">⚠️ Debes aceptar el tratamiento de datos para continuar.</div>
+              </div>
+              <button type="submit" class="submit-btn">
+                🚀 Enviar Mensaje 🚀
+              </button>
+            </form>
+          </div>
+        </div>
+      </section>
+
+      <!-- Notificación -->
+      <div id="formNotification" class="form-notification">
+        <div id="notificationContent"></div>
+      </div>
+
+      <footer class="section footer-classic bg-default">
+        <div class="container">
+          <div class="row row-15">
+            <div class="text-center p-3" style="background-color: rgba(0, 0, 0, 0.05);">
+              © 2025 Derechos reservados por el equipo de producción y logística.
+            </div>
+          </div>
+        </div>
+      </footer>
+    </div>
+    
+    <div class="snackbars" id="form-output-global"></div>
+    <script src="js/core.min.js"></script>
+    <script src="js/script.js"></script>
+    <script src="../PROYECTO  copia Modificado/show en vivo/js/Tratamiento de datos.js"></script>
+    
+    <script>
+      // Clase para manejar efectos de audio
+      class AudioEffects {
+        constructor() {
+          this.audioContext = null;
+          this.sounds = {
+            focus: { frequency: 440, duration: 0.1 },
+            type: { frequency: 600, duration: 0.05 },
+            success: { frequency: 800, duration: 0.2 },
+            error: { frequency: 200, duration: 0.3 },
+            click: { frequency: 550, duration: 0.1 },
+            submit: { frequency: 880, duration: 0.5 }
+          };
+          this.initAudio();
+        }
+        
+        initAudio() {
+          try {
+            this.audioContext = new (window.AudioContext || window.webkitAudioContext)();
+          } catch (e) {
+            console.log('Web Audio API no soportado');
+          }
+        }
+        
+        playSound(type) {
+          if (!this.audioContext) return;
+          
+          const sound = this.sounds[type];
+          if (!sound) return;
+          
+          const oscillator = this.audioContext.createOscillator();
+          const gainNode = this.audioContext.createGain();
+          
+          oscillator.connect(gainNode);
+          gainNode.connect(this.audioContext.destination);
+          
+          oscillator.frequency.setValueAtTime(sound.frequency, this.audioContext.currentTime);
+          oscillator.type = type === 'error' ? 'sawtooth' : 'sine';
+          
+          gainNode.gain.setValueAtTime(0, this.audioContext.currentTime);
+          gainNode.gain.linearRampToValueAtTime(0.1, this.audioContext.currentTime + 0.01);
+          gainNode.gain.exponentialRampToValueAtTime(0.001, this.audioContext.currentTime + sound.duration);
+          
+          oscillator.start(this.audioContext.currentTime);
+          oscillator.stop(this.audioContext.currentTime + sound.duration);
+        }
+        
+        playMelody(frequencies, duration = 0.2) {
+          if (!this.audioContext) return;
+          
+          frequencies.forEach((freq, index) => {
+            setTimeout(() => {
+              const oscillator = this.audioContext.createOscillator();
+              const gainNode = this.audioContext.createGain();
+              
+              oscillator.connect(gainNode);
+              gainNode.connect(this.audioContext.destination);
+              
+              oscillator.frequency.setValueAtTime(freq, this.audioContext.currentTime);
+              oscillator.type = 'sine';
+              
+              gainNode.gain.setValueAtTime(0, this.audioContext.currentTime);
+              gainNode.gain.linearRampToValueAtTime(0.1, this.audioContext.currentTime + 0.01);
+              gainNode.gain.exponentialRampToValueAtTime(0.001, this.audioContext.currentTime + duration);
+              
+              oscillator.start(this.audioContext.currentTime);
+              oscillator.stop(this.audioContext.currentTime + duration);
+            }, index * duration * 300);
+          });
+        }
+      }
+      
+      // Clase para validación de formularios
+      class FormValidator {
+        constructor() {
+          this.rules = {
+            name: {
+              required: true,
+              minLength: 2,
+              pattern: /^[a-zA-ZáéíóúÁÉÍÓÚñÑ\s]+$/,
+              message: 'El ritmo necesita tu nombre!'
+            },
+            email: {
+              required: true,
+              pattern: /^[^\s@]+@[^\s@]+\.[^\s@]+$/,
+              message: 'Necesitamos un email válido para la sinfonía!'
+            },
+            phone: {
+              required: false,
+              pattern: /^[\+]?[\d\s\-\(\)]+$/,
+              minLength: 10,
+              message: 'Número de teléfono fuera de tempo!'
+            },
+            service: {
+              required: true,
+              message: 'Elige el servicio que haga vibrar tu alma!'
+            },
+            message: {
+              required: true,
+              minLength: 10,
+              message: 'Comparte tu melodía con nosotros!'
+            }
+          };
+        }
+        
+        validateField(name, value) {
+          const rule = this.rules[name];
+          if (!rule) return { valid: true };
+          
+          if (rule.required && (!value || value.trim() === '')) {
+            return { valid: false, message: rule.message };
+          }
+          
+          if (!rule.required && (!value || value.trim() === '')) {
+            return { valid: true };
+          }
+          
+          if (rule.minLength && value.length < rule.minLength) {
+            return { valid: false, message: rule.message };
+          }
+          
+          if (rule.pattern && !rule.pattern.test(value)) {
+            return { valid: false, message: rule.message };
+          }
+          
+          return { valid: true, message: 'Perfecto!' };
+        }
+        
+        validateForm(formData) {
+          const errors = {};
+          let isValid = true;
+          
+          for (const [name, value] of Object.entries(formData)) {
+            const result = this.validateField(name, value);
+            if (!result.valid) {
+              errors[name] = result.message;
+              isValid = false;
+            }
+          }
+          
+          return { isValid, errors };
+        }
+      }
+      
+      // Inicializar efectos y validador
+      const audioEffects = new AudioEffects();
+      const validator = new FormValidator();
+      
+      // Crear partículas musicales
+      function createParticles() {
+        const particles = document.getElementById('particles');
+        const musicSymbols = ['♪', '♫', '♬', '♩', '♭', '♯', '#'];
+        
+        function addParticle() {
+          const particle = document.createElement('div');
+          particle.className = 'particle';
+          particle.textContent = musicSymbols[Math.floor(Math.random() * musicSymbols.length)];
+          particle.style.left = Math.random() * 100 + 'vw';
+          particle.style.animationDuration = (Math.random() * 3 + 4) + 's';
+          particle.style.animationDelay = Math.random() * 2 + 's';
+          particles.appendChild(particle);
+          
+          setTimeout(() => {
+            particle.remove();
+          }, 8000);
+        }
+        
+        setInterval(addParticle, 800);
+      }
+      
+      // Aplicar efectos de validación visual
+      function applyValidationState(element, isValid, message) {
+        const formGroup = element.closest('.form-group');
+        
+        formGroup.classList.remove('valid', 'invalid');
+        
+        if (isValid) {
+          formGroup.classList.add('valid');
+          audioEffects.playSound('success');
+          createValidationParticles(element, 'success');
+        } else {
+          formGroup.classList.add('invalid');
+          audioEffects.playSound('error');
+          createValidationParticles(element, 'error');
+        }
+      }
+      
+      // Crear partículas de validación
+      function createValidationParticles(element, type) {
+        const rect = element.getBoundingClientRect();
+        const colors = type === 'success' ? ['✓', '✔', '○'] : ['✗', '×', '!'];
+        
+        for (let i = 0; i < 5; i++) {
+          const particle = document.createElement('div');
+          particle.textContent = colors[Math.floor(Math.random() * colors.length)];
+          particle.style.cssText = `
+            position: fixed;
+            left: ${rect.left + rect.width / 2}px;
+            top: ${rect.top + rect.height / 2}px;
+            font-size: 16px;
+            pointer-events: none;
+            z-index: 10000;
+            color: ${type === 'success' ? '#06ffa5' : '#ff006e'};
+            animation: validationExplode 1s ease-out forwards;
+            animation-delay: ${i * 0.1}s;
+          `;
+          
+          const angle = (Math.PI * 2 * i) / 5;
+          const distance = 30 + Math.random() * 20;
+          const x = Math.cos(angle) * distance;
+          const y = Math.sin(angle) * distance;
+          
+          particle.style.setProperty('--x', x + 'px');
+          particle.style.setProperty('--y', y + 'px');
+          
+          document.body.appendChild(particle);
+          
+          setTimeout(() => particle.remove(), 1000);
+        }
+      }
+      
+      // Agregar estilos para partículas de validación
+      const validationStyles = document.createElement('style');
+      validationStyles.textContent = `
+        @keyframes validationExplode {
+          0% {
+            transform: translate(0, 0) scale(1);
+            opacity: 1;
+          }
+          100% {
+            transform: translate(var(--x), var(--y)) scale(0.5);
+            opacity: 0;
+          }
+        }
+      `;
+      document.head.appendChild(validationStyles);
+      
+      // Efectos de entrada en inputs
+      function addInputEffects() {
+        const inputs = document.querySelectorAll('input, select, textarea');
+        
+        inputs.forEach(input => {
+          input.addEventListener('focus', function() {
+            audioEffects.playSound('focus');
+            this.parentElement.style.transform = 'scale(1.02)';
+            createMiniWaves(this);
+          });
+          
+          input.addEventListener('blur', function() {
+            this.parentElement.style.transform = 'scale(1)';
+            
+            const result = validator.validateField(this.name, this.value);
+            applyValidationState(this, result.valid, result.message);
+          });
+          
+          input.addEventListener('input', function() {
+            audioEffects.playSound('type');
+            const icon = this.nextElementSibling;
+            if (icon && icon.classList.contains('form-icon')) {
+              icon.style.animation = 'iconBounce 0.3s ease';
+              setTimeout(() => {
+                icon.style.animation = '';
+              }, 300);
+            }
+            
+            const formGroup = this.closest('.form-group');
+            if (formGroup.classList.contains('valid') || formGroup.classList.contains('invalid')) {
+              const result = validator.validateField(this.name, this.value);
+              applyValidationState(this, result.valid, result.message);
+            }
+          });
+          
+          input.addEventListener('click', function() {
+            audioEffects.playSound('click');
+          });
+        });
+      }
+      
+      function createMiniWaves(element) {
+        const rect = element.getBoundingClientRect();
+        const waves = document.createElement('div');
+        waves.className = 'mini-waves';
+        waves.style.cssText = `
+          position: fixed;
+          left: ${rect.left}px;
+          top: ${rect.top}px;
+          pointer-events: none;
+          z-index: 1000;
+        `;
+        
+        for (let i = 0; i < 5; i++) {
+          const wave = document.createElement('div');
+          wave.style.cssText = `
+            width: 3px;
+            height: 15px;
+            background: linear-gradient(to top, #ff006e, #8338ec);
+            border-radius: 2px;
+            display: inline-block;
+            margin: 0 1px;
+            animation: waveAnimation 0.8s ease-in-out;
+            animation-delay: ${i * 0.1}s;
+          `;
+          waves.appendChild(wave);
+        }
+        
+        document.body.appendChild(waves);
+        
+        setTimeout(() => {
+          waves.remove();
+        }, 1000);
+      }
+      
+      // Mostrar notificación
+      function showNotification(message, type = 'success') {
+        const notification = document.getElementById('formNotification');
+        const content = document.getElementById('notificationContent');
+        
+        content.innerHTML = message;
+        notification.className = `form-notification ${type}`;
+        notification.classList.add('show');
+        
+        setTimeout(() => {
+          notification.classList.remove('show');
+        }, 4000);
+      }
+      
+      // Manejar envío del formulario
+      document.getElementById('contactForm').addEventListener('submit', async function(e) {
+        e.preventDefault();
+        audioEffects.playSound('click');
+        
+        const btn = document.querySelector('.submit-btn');
+        const originalText = btn.textContent;
+        
+        const formData = new FormData(this);
+        const data = Object.fromEntries(formData.entries());
+        
+        const validation = validator.validateForm(data);
+        
+        if (!validation.isValid) {
+          for (const [fieldName, message] of Object.entries(validation.errors)) {
+            const field = document.querySelector(`[name="${fieldName}"]`);
+            if (field) {
+              applyValidationState(field, false, message);
+            }
+          }
+          
+          audioEffects.playMelody([200, 180, 160], 0.3);
+          showNotification('Por favor, completa todos los campos correctamente', 'error');
+          return;
+        }
+        
+        btn.textContent = 'Enviando...';
+        btn.disabled = true;
+        btn.style.animation = 'buttonGradient 0.3s ease infinite';
+        
+        audioEffects.playSound('submit');
+        createSuccessExplosion();
+        
+        try {
+          const response = await fetch(this.action, {
+            method: 'POST',
+            body: formData,
+            headers: {
+              'Accept': 'application/json'
+            }
+          });
+          
+          if (response.ok) {
+            btn.textContent = '¡Mensaje Enviado!';
+            btn.style.background = 'linear-gradient(45deg, #06ffa5, #00d2ff)';
+            
+            audioEffects.playMelody([440, 554, 659, 880], 0.3);
+            showNotification('¡Tu mensaje ha sido enviado con éxito! Daviid Glez se pondrá en contacto contigo pronto.', 'success');
+            
+            setTimeout(() => {
+              this.reset();
+              btn.textContent = originalText;
+              btn.style.background = '';
+              btn.style.animation = '';
+              btn.disabled = false;
+              
+              document.querySelectorAll('.form-group').forEach(group => {
+                group.classList.remove('valid', 'invalid');
+              });
+            }, 3000);
+          } else {
+            throw new Error('Error en el envío');
+          }
+        } catch (error) {
+          btn.textContent = 'Error al enviar';
+          btn.style.background = 'linear-gradient(45deg, #ff006e, #ff4000)';
+          
+          audioEffects.playMelody([200, 180, 160, 140], 0.4);
+          showNotification('Hubo un error al enviar tu mensaje. Por favor, inténtalo de nuevo.', 'error');
+          
+          setTimeout(() => {
+            btn.textContent = originalText;
+            btn.style.background = '';
+            btn.style.animation = '';
+            btn.disabled = false;
+          }, 3000);
+        }
+      });
+      
+      function createSuccessExplosion() {
+        const container = document.querySelector('.form-container');
+        const rect = container.getBoundingClientRect();
+        
+        for (let i = 0; i < 20; i++) {
+          const particle = document.createElement('div');
+          particle.textContent = ['✓', '○', '◆', '◇', '♦'][Math.floor(Math.random() * 5)];
+          particle.style.cssText = `
+            position: fixed;
+            left: ${rect.left + rect.width/2}px;
+            top: ${rect.top + rect.height/2}px;
+            font-size: 20px;
+            color: #06ffa5;
+            pointer-events: none;
+            z-index: 10000;
+            animation: explode 1.5s ease-out forwards;
+            animation-delay: ${Math.random() * 0.3}s;
+          `;
+          
+          const angle = (Math.PI * 2 * i) / 20;
+          const distance = 100 + Math.random() * 100;
+          const x = Math.cos(angle) * distance;
+          const y = Math.sin(angle) * distance;
+          
+          particle.style.setProperty('--x', x + 'px');
+          particle.style.setProperty('--y', y + 'px');
+          
+          document.body.appendChild(particle);
+          
+          setTimeout(() => particle.remove(), 1500);
+        }
+      }
+      
+      // Inicializar efectos
+      createParticles();
+      addInputEffects();
+      
+      // Cursor musical
+      document.addEventListener('mousemove', function(e) {
+        if (Math.random() > 0.95) {
+          const note = document.createElement('div');
+          note.textContent = '♪';
+          note.style.cssText = `
+            position: fixed;
+            left: ${e.clientX}px;
+            top: ${e.clientY}px;
+            color: rgba(138, 43, 226, 0.6);
+            font-size: 16px;
+            pointer-events: none;
+            z-index: 1000;
+            animation: fadeUp 1s ease-out forwards;
+          `;
+          
+          document.body.appendChild(note);
+          setTimeout(() => note.remove(), 1000);
+        }
+      });
+      
+      // Inicializar audio en el primer clic del usuario
+      document.addEventListener('click', function initAudioOnClick() {
+        if (audioEffects.audioContext && audioEffects.audioContext.state === 'suspended') {
+          audioEffects.audioContext.resume();
+        }
+        document.removeEventListener('click', initAudioOnClick);
+      }, { once: true });
+    </script>
+    <!DOCTYPE html>
+<html>
+<head>
+    <style>
+      /* SOLO ARREGLO DEL LOGO - Sin tocar el diseño existente */
+      
+      /* Corregir dimensiones del logo sin afectar navbar */
+      .rd-navbar-brand img {
+        /* Remover dimensiones fijas y hacerlo responsivo */
+        width: auto !important;
+        height: auto !important;
+        max-height: 40px; /* Tamaño apropiado para desktop */
+        max-width: 180px;
+        object-fit: contain;
+      }
+      
+      /* Solo ajustes responsivos para el logo */
+      @media (max-width: 768px) {
+        .rd-navbar-brand img {
+          max-height: 35px;
+          max-width: 150px;
+        }
+      }
+      
+      @media (max-width: 576px) {
+        .rd-navbar-brand img {
+          max-height: 32px;
+          max-width: 130px;
+        }
+      }
+      
+      @media (max-width: 400px) {
+        .rd-navbar-brand img {
+          max-height: 30px;
+          max-width: 110px;
+        }
+      }
+    </style>
+</head>
+<body>
+    
