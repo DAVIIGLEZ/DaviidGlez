@@ -1,0 +1,816 @@
+<!DOCTYPE html>
+<html class="wide wow-animation" lang="en">
+<head>
+  <title>Galeria</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, height=device-height, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <link rel="icon" href="imagenes/logo.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Rajdhani:wght@400;600;700&family=Poppins:wght@300;400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/bootstrap.css">
+  <link rel="stylesheet" href="css/fonts.css">
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/style10.css">
+
+  <style>
+    :root {
+      --red: #ff0044;
+      --red-glow: rgba(255, 0, 68, 0.6);
+      --dark: #080810;
+      --dark2: #0e0e1a;
+      --glass: rgba(8, 8, 16, 0.85);
+      --white: #f0f0f8;
+    }
+
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    .ie-panel { display: none; background: #212121; padding: 10px 0; clear: both; text-align: center; position: relative; z-index: 1; }
+    html.ie-10 .ie-panel, html.lt-ie-10 .ie-panel { display: block; }
+
+    .rd-navbar-panel { display: flex; align-items: center; justify-content: space-between; padding: 8px 15px; }
+    .rd-navbar-toggle { margin-right: 10px; }
+    .rd-navbar-brand { display: flex; align-items: center; justify-content: center; padding: 5px 15px; }
+    .rd-navbar-brand img { max-height: 55px; height: auto; width: auto; display: block; }
+    @media (max-width: 768px) { .rd-navbar-brand img { max-height: 45px; } }
+
+    /* ══ GALLERY SECTION ══ */
+    .gallery-section {
+      padding: 120px 20px 60px;
+      background: var(--dark);
+      min-height: 100vh;
+      position: relative;
+      overflow: hidden;
+    }
+    .gallery-section::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background-image:
+        linear-gradient(rgba(255,0,68,0.04) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255,0,68,0.04) 1px, transparent 1px);
+      background-size: 60px 60px;
+      pointer-events: none;
+    }
+
+    .gallery-title {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: clamp(3rem, 8vw, 7rem);
+      letter-spacing: 0.15em;
+      color: var(--white);
+      text-align: center;
+      line-height: 1;
+      margin-bottom: 10px;
+      position: relative;
+      z-index: 2;
+    }
+    .gallery-title span { color: var(--red); text-shadow: 0 0 40px var(--red-glow); }
+    .gallery-subtitle {
+      font-family: 'Rajdhani', sans-serif;
+      font-size: 0.85rem;
+      letter-spacing: 0.4em;
+      color: rgba(240,240,248,0.35);
+      text-align: center;
+      text-transform: uppercase;
+      margin-bottom: 50px;
+      position: relative;
+      z-index: 2;
+    }
+
+    /* ══ SLIDER ══ */
+    .slider-wrap {
+      position: relative;
+      max-width: 1000px;
+      margin: 0 auto;
+      z-index: 2;
+    }
+
+    .slider-track-outer {
+      position: relative;
+      border-radius: 18px;
+      padding: 2px;
+      background: linear-gradient(135deg, rgba(255,0,68,0.4), transparent 40%, rgba(255,0,68,0.2));
+      box-shadow: 0 30px 80px rgba(0,0,0,0.7), 0 0 60px rgba(255,0,68,0.08);
+      animation: borderGlow 4s ease-in-out infinite;
+    }
+    @keyframes borderGlow {
+      0%,100% { box-shadow: 0 30px 80px rgba(0,0,0,0.7), 0 0 40px rgba(255,0,68,0.08); }
+      50% { box-shadow: 0 30px 80px rgba(0,0,0,0.7), 0 0 80px rgba(255,0,68,0.2); }
+    }
+
+    .slider-track-inner {
+      border-radius: 16px;
+      overflow: hidden;
+      background: var(--dark2);
+      position: relative;
+    }
+
+    .slider-track {
+      display: flex;
+      transition: transform 0.7s cubic-bezier(0.77, 0, 0.175, 1);
+      will-change: transform;
+    }
+
+    .slide {
+      min-width: 100%;
+      position: relative;
+      cursor: zoom-in;
+    }
+    .slide img {
+      width: 100%;
+      height: 520px;
+      object-fit: cover;
+      display: block;
+      transition: transform 0.6s ease;
+    }
+    .slide:hover img { transform: scale(1.03); }
+
+    .slide-caption {
+      position: absolute;
+      bottom: 0; left: 0; right: 0;
+      padding: 60px 30px 25px;
+      background: linear-gradient(transparent, rgba(8,8,16,0.88));
+      font-family: 'Rajdhani', sans-serif;
+      color: var(--white);
+      opacity: 0;
+      transform: translateY(10px);
+      transition: all 0.4s ease;
+    }
+    .slide:hover .slide-caption { opacity: 1; transform: translateY(0); }
+    .slide-caption .num { font-size: 0.7rem; letter-spacing: 0.35em; color: var(--red); text-transform: uppercase; }
+    .slide-caption .title { font-size: 1.4rem; font-weight: 700; letter-spacing: 0.05em; }
+
+    .slide-zoom-icon {
+      position: absolute;
+      top: 18px; right: 18px;
+      width: 42px; height: 42px;
+      border-radius: 50%;
+      background: var(--glass);
+      border: 1px solid rgba(255,0,68,0.5);
+      display: flex; align-items: center; justify-content: center;
+      opacity: 0;
+      transform: scale(0.6);
+      transition: all 0.35s cubic-bezier(0.34,1.56,0.64,1);
+      backdrop-filter: blur(8px);
+    }
+    .slide-zoom-icon svg { width: 20px; height: 20px; fill: var(--red); }
+    .slide:hover .slide-zoom-icon { opacity: 1; transform: scale(1); }
+
+    /* Progress bar */
+    .slider-progress { height: 3px; background: rgba(255,255,255,0.06); position: relative; overflow: hidden; }
+    .slider-progress-bar {
+      height: 100%;
+      background: linear-gradient(90deg, var(--red), #ff6688);
+      width: 0%;
+      box-shadow: 0 0 10px var(--red-glow);
+    }
+
+    /* Counter */
+    .slider-counter {
+      position: absolute;
+      bottom: 50px; right: 18px;
+      z-index: 10;
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 1rem;
+      letter-spacing: 0.1em;
+      color: rgba(255,255,255,0.4);
+      pointer-events: none;
+    }
+    .slider-counter .cur { color: var(--red); font-size: 1.5rem; text-shadow: 0 0 10px var(--red-glow); }
+
+    /* Autoplay toggle */
+    .autoplay-btn {
+      position: absolute;
+      bottom: 14px; right: 16px;
+      z-index: 10;
+      background: var(--glass);
+      border: 1px solid rgba(255,0,68,0.3);
+      border-radius: 20px;
+      padding: 5px 14px;
+      font-family: 'Rajdhani', sans-serif;
+      font-size: 0.7rem; font-weight: 700;
+      letter-spacing: 0.2em; text-transform: uppercase;
+      color: rgba(240,240,248,0.55);
+      cursor: pointer;
+      transition: all 0.3s;
+      display: flex; align-items: center; gap: 6px;
+      backdrop-filter: blur(8px);
+      user-select: none;
+    }
+    .autoplay-btn:hover { border-color: var(--red); color: var(--white); }
+    .autoplay-btn .dot {
+      width: 7px; height: 7px; border-radius: 50%;
+      background: var(--red); box-shadow: 0 0 6px var(--red);
+      animation: blinkDot 1s ease-in-out infinite;
+    }
+    .autoplay-btn.paused .dot { animation: none; background: rgba(255,255,255,0.25); box-shadow: none; }
+    @keyframes blinkDot { 0%,100%{opacity:1} 50%{opacity:0.2} }
+
+    /* Arrows */
+    .slider-arrow {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      z-index: 10;
+      width: 54px; height: 54px;
+      border-radius: 50%;
+      background: var(--glass);
+      border: 2px solid rgba(255,0,68,0.4);
+      backdrop-filter: blur(10px);
+      cursor: pointer;
+      display: flex; align-items: center; justify-content: center;
+      transition: all 0.3s ease;
+      animation: arrowPulse 3s ease-in-out infinite;
+    }
+    .slider-arrow:hover {
+      background: rgba(255,0,68,0.2);
+      border-color: var(--red);
+      box-shadow: 0 0 35px var(--red-glow);
+      transform: translateY(-50%) scale(1.12);
+    }
+    .slider-arrow svg { width: 22px; height: 22px; fill: var(--white); transition: all 0.3s; }
+    .slider-arrow:hover svg { fill: var(--red); filter: drop-shadow(0 0 6px var(--red)); }
+    .slider-prev { left: -27px; }
+    .slider-next { right: -27px; }
+    .slider-prev:hover svg { transform: translateX(-2px); }
+    .slider-next:hover svg { transform: translateX(2px); }
+    @keyframes arrowPulse {
+      0%,100% { box-shadow: 0 0 15px rgba(255,0,68,0.15); }
+      50% { box-shadow: 0 0 35px rgba(255,0,68,0.45), 0 0 60px rgba(255,0,68,0.15); }
+    }
+    @media (max-width: 768px) {
+      .slider-prev { left: 8px; }
+      .slider-next { right: 8px; }
+      .slide img { height: 280px; }
+    }
+
+    /* Thumbnails */
+    .thumbs-wrap {
+      display: flex; gap: 10px;
+      margin-top: 16px;
+      overflow-x: auto;
+      padding: 4px 2px 10px;
+      scrollbar-width: thin;
+      scrollbar-color: var(--red) rgba(255,255,255,0.05);
+    }
+    .thumbs-wrap::-webkit-scrollbar { height: 4px; }
+    .thumbs-wrap::-webkit-scrollbar-track { background: rgba(255,255,255,0.05); border-radius: 2px; }
+    .thumbs-wrap::-webkit-scrollbar-thumb { background: var(--red); border-radius: 2px; }
+
+    .thumb {
+      flex: 0 0 calc(20% - 8px); min-width: 80px;
+      border-radius: 10px; overflow: hidden;
+      cursor: pointer; opacity: 0.45;
+      transition: all 0.35s ease;
+      border: 2px solid transparent;
+      position: relative;
+    }
+    .thumb img { width: 100%; height: 72px; object-fit: cover; display: block; transition: transform 0.4s ease; }
+    .thumb:hover { opacity: 0.8; transform: translateY(-3px); }
+    .thumb:hover img { transform: scale(1.1); }
+    .thumb.active {
+      opacity: 1;
+      border-color: var(--red);
+      box-shadow: 0 0 14px var(--red-glow), 0 6px 20px rgba(0,0,0,0.4);
+      transform: translateY(-4px);
+    }
+
+    /* Dots */
+    .dots-wrap { display: flex; justify-content: center; gap: 8px; margin-top: 18px; }
+    .dot-ind {
+      width: 8px; height: 8px; border-radius: 50%;
+      background: rgba(255,255,255,0.18);
+      cursor: pointer;
+      transition: all 0.35s ease;
+      border: 1px solid rgba(255,0,68,0.3);
+    }
+    .dot-ind.active {
+      background: var(--red);
+      box-shadow: 0 0 10px var(--red-glow);
+      width: 26px; border-radius: 4px;
+      transform: scaleY(1.1);
+    }
+    .dot-ind:hover { background: rgba(255,0,68,0.5); }
+
+    /* ══ LIGHTBOX ══ */
+    .lb-overlay {
+      position: fixed; inset: 0;
+      background: rgba(4,4,10,0.97);
+      z-index: 99998;
+      display: none;
+      align-items: center; justify-content: center;
+    }
+    .lb-overlay.active { display: flex; animation: lbFadeIn 0.3s ease; }
+    @keyframes lbFadeIn { from{opacity:0} to{opacity:1} }
+
+    .lb-overlay::after {
+      content: '';
+      position: absolute; inset: 0;
+      background: repeating-linear-gradient(0deg, transparent, transparent 2px, rgba(0,0,0,0.07) 2px, rgba(0,0,0,0.07) 4px);
+      pointer-events: none; z-index: 0;
+    }
+
+    .lb-content {
+      position: relative; z-index: 1;
+      animation: lbZoomIn 0.4s cubic-bezier(0.34,1.56,0.64,1);
+    }
+    @keyframes lbZoomIn { from{transform:scale(0.85);opacity:0} to{transform:scale(1);opacity:1} }
+
+    .lb-content img {
+      max-width: 90vw; max-height: 82vh;
+      border-radius: 12px; display: block;
+      box-shadow: 0 0 0 1px rgba(255,0,68,0.3), 0 40px 100px rgba(0,0,0,0.8);
+      transition: opacity 0.25s ease, transform 0.25s ease;
+    }
+
+    .lb-caption {
+      text-align: center;
+      font-family: 'Rajdhani', sans-serif;
+      color: rgba(240,240,248,0.5);
+      font-size: 0.85rem; letter-spacing: 0.25em;
+      text-transform: uppercase; margin-top: 14px;
+    }
+
+    /* LB top label */
+    .lb-label {
+      position: fixed; top: 22px; left: 50%; transform: translateX(-50%);
+      z-index: 99999;
+      font-family: 'Rajdhani', sans-serif;
+      font-size: 0.75rem; font-weight: 700;
+      letter-spacing: 0.4em; text-transform: uppercase;
+      color: rgba(240,240,248,0.3); pointer-events: none;
+    }
+
+    /* LB close */
+    .lb-close {
+      position: fixed; top: 20px; right: 20px;
+      z-index: 99999;
+      width: 50px; height: 50px; border-radius: 50%;
+      background: rgba(8,8,16,0.85);
+      border: 2px solid rgba(255,0,68,0.4);
+      cursor: pointer;
+      display: flex; align-items: center; justify-content: center;
+      transition: all 0.3s ease; backdrop-filter: blur(10px);
+    }
+    .lb-close:hover { background: rgba(255,0,68,0.2); border-color: var(--red); transform: rotate(90deg) scale(1.1); box-shadow: 0 0 30px var(--red-glow); }
+    .lb-close svg { width: 22px; height: 22px; fill: var(--white); }
+
+    /* LB nav arrows */
+    .lb-arrow {
+      position: fixed; top: 50%; transform: translateY(-50%);
+      z-index: 99999;
+      width: 60px; height: 60px; border-radius: 50%;
+      background: rgba(8,8,16,0.82);
+      border: 2px solid rgba(255,0,68,0.5);
+      backdrop-filter: blur(10px);
+      cursor: pointer;
+      display: flex; align-items: center; justify-content: center;
+      transition: all 0.3s ease;
+      animation: lbArrowPulse 2.5s ease-in-out infinite;
+    }
+    .lb-arrow:hover {
+      background: rgba(255,0,68,0.22);
+      border-color: var(--red);
+      box-shadow: 0 0 50px var(--red-glow);
+      transform: translateY(-50%) scale(1.12);
+    }
+    .lb-arrow svg { width: 26px; height: 26px; fill: var(--white); transition: all 0.3s; }
+    .lb-arrow:hover svg { fill: var(--red); filter: drop-shadow(0 0 8px var(--red)); }
+    .lb-prev { left: 20px; }
+    .lb-next { right: 20px; }
+    .lb-prev:hover svg { transform: translateX(-3px); }
+    .lb-next:hover svg { transform: translateX(3px); }
+    @keyframes lbArrowPulse {
+      0%,100% { box-shadow: 0 0 20px rgba(255,0,68,0.25); }
+      50% { box-shadow: 0 0 45px rgba(255,0,68,0.55), 0 0 80px rgba(255,0,68,0.2); }
+    }
+
+    /* LB counter */
+    .lb-counter {
+      position: fixed; bottom: 28px; right: 26px; z-index: 99999;
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 1rem; letter-spacing: 0.1em;
+      color: rgba(240,240,248,0.35);
+    }
+    .lb-counter .lbc { color: var(--red); font-size: 1.6rem; text-shadow: 0 0 12px var(--red-glow); }
+
+    /* ── BOTÓN VOLVER CHIMBA ── */
+    .lb-volver {
+      position: fixed;
+      left: 24px; bottom: 28px;
+      z-index: 99999;
+      text-decoration: none;
+      display: flex; flex-direction: column; align-items: center; gap: 7px;
+      animation: vFloat 2.5s ease-in-out infinite;
+    }
+    .lb-volver .vring1 {
+      position: absolute;
+      width: 72px; height: 72px; border-radius: 50%;
+      border: 2px solid transparent;
+      border-top-color: var(--red); border-right-color: rgba(255,0,68,0.2);
+      animation: spinR 2s linear infinite;
+      pointer-events: none;
+    }
+    .lb-volver .vring2 {
+      position: absolute;
+      width: 56px; height: 56px; border-radius: 50%;
+      border: 1.5px solid transparent;
+      border-bottom-color: var(--red); border-left-color: rgba(255,0,68,0.15);
+      animation: spinR 1.2s linear infinite reverse;
+      pointer-events: none;
+    }
+    .lb-volver .vring3 {
+      position: absolute;
+      width: 86px; height: 86px; border-radius: 50%;
+      border: 1px dashed rgba(255,0,68,0.18);
+      animation: spinR 7s linear infinite;
+      pointer-events: none;
+    }
+    .lb-volver::before {
+      content: '';
+      position: absolute;
+      width: 62px; height: 62px; border-radius: 50%;
+      background: rgba(255,0,68,0.1);
+      animation: vPulse 1.8s ease-out infinite;
+      pointer-events: none;
+    }
+    .lb-volver .vcircle {
+      width: 62px; height: 62px; border-radius: 50%;
+      background: rgba(8,8,16,0.92);
+      backdrop-filter: blur(14px);
+      border: 2px solid rgba(255,0,68,0.55);
+      display: flex; align-items: center; justify-content: center;
+      position: relative;
+      transition: all 0.3s ease;
+      box-shadow: 0 0 22px rgba(255,0,68,0.35), inset 0 0 22px rgba(255,0,68,0.08);
+    }
+    .lb-volver .vcircle svg {
+      width: 26px; height: 26px;
+      fill: var(--red);
+      filter: drop-shadow(0 0 5px var(--red));
+      transition: transform 0.35s cubic-bezier(0.34,1.56,0.64,1);
+    }
+    .lb-volver .vlabel {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 12px; letter-spacing: 3px;
+      color: var(--red);
+      text-shadow: 0 0 12px var(--red-glow);
+      text-transform: uppercase;
+      transition: all 0.3s ease;
+      white-space: nowrap;
+    }
+
+    .lb-volver:hover .vcircle {
+      background: rgba(255,0,68,0.22);
+      border-color: var(--red);
+      box-shadow: 0 0 45px var(--red-glow), 0 0 90px rgba(255,0,68,0.22), inset 0 0 28px rgba(255,0,68,0.15);
+      transform: scale(1.15);
+    }
+    .lb-volver:hover .vcircle svg { transform: translateX(-5px) scale(1.15); }
+    .lb-volver:hover .vring1 { animation-duration: 0.55s; }
+    .lb-volver:hover .vring2 { animation-duration: 0.35s; }
+    .lb-volver:hover .vlabel { letter-spacing: 5px; text-shadow: 0 0 20px var(--red-glow), 0 0 45px var(--red-glow); }
+
+    @keyframes spinR { from{transform:rotate(0deg)} to{transform:rotate(360deg)} }
+    @keyframes vPulse { 0%{transform:scale(1);opacity:0.7} 70%{transform:scale(2.6);opacity:0} 100%{transform:scale(2.6);opacity:0} }
+    @keyframes vFloat {
+      0%,100% { transform:translateY(0px); }
+      30% { transform:translateY(-9px) rotate(-1.5deg); }
+      70% { transform:translateY(6px) rotate(1.5deg); }
+    }
+
+    /* KB hint */
+    .lb-hint {
+      position: fixed; bottom: 14px; left: 50%; transform: translateX(-50%);
+      z-index: 99999;
+      font-family: 'Poppins', sans-serif;
+      font-size: 0.65rem; color: rgba(255,255,255,0.18);
+      letter-spacing: 0.15em; pointer-events: none; white-space: nowrap;
+    }
+
+    .section.footer-classic { position: relative; z-index: 2; }
+  </style>
+</head>
+<body>
+
+  <div class="ie-panel">
+    <a href="http://windows.microsoft.com/en-US/internet-explorer/">
+      <img src="images/ie8-panel/warning_bar_0000_us.jpg" height="42" width="820" alt="Upgrade your browser.">
+    </a>
+  </div>
+  <div class="preloader">
+    <div class="preloader-body"><div class="cssload-container"></div></div>
+  </div>
+
+  <!-- ══ LIGHTBOX ══ -->
+  <div class="lb-overlay" id="lbOverlay">
+    <div class="lb-label" id="lbLabel">GALERÍA</div>
+
+    <!-- Botón VOLVER -->
+    <a href="galeria.html" class="lb-volver" title="Volver a la galería">
+      <div class="vring3"></div>
+      <div class="vring1"></div>
+      <div class="vring2"></div>
+      <div class="vcircle">
+        <svg viewBox="0 0 24 24"><path d="M20 11H7.83l5.59-5.59L12 4l-8 8 8 8 1.41-1.41L7.83 13H20v-2z"/></svg>
+      </div>
+      <span class="vlabel">VOLVER</span>
+    </a>
+
+    <!-- Close -->
+    <div class="lb-close" id="lbClose" title="Cerrar">
+      <svg viewBox="0 0 24 24"><path d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+    </div>
+
+    <!-- Nav -->
+    <div class="lb-arrow lb-prev" id="lbPrev">
+      <svg viewBox="0 0 24 24"><path d="M15.41 7.41L14 6l-6 6 6 6 1.41-1.41L10.83 12z"/></svg>
+    </div>
+    <div class="lb-arrow lb-next" id="lbNext">
+      <svg viewBox="0 0 24 24"><path d="M10 6L8.59 7.41 13.17 12l-4.58 4.59L10 18l6-6z"/></svg>
+    </div>
+
+    <div class="lb-content">
+      <img id="lbImg" src="" alt="">
+      <div class="lb-caption" id="lbCaption"></div>
+    </div>
+
+    <div class="lb-counter"><span class="lbc" id="lbCur">1</span> / <span id="lbTotal">5</span></div>
+    <div class="lb-hint">← → para navegar &nbsp;·&nbsp; ESC para cerrar</div>
+  </div>
+
+  <div class="page">
+    <!-- Header -->
+    <header class="section page-header">
+      <div class="rd-navbar-wrap" style="position: fixed; top: 0; width: 100%; z-index: 100;">
+        <nav class="rd-navbar rd-navbar-classic"
+          data-layout="rd-navbar-fixed" data-sm-layout="rd-navbar-fixed"
+          data-md-layout="rd-navbar-fixed" data-lg-layout="rd-navbar-fixed"
+          data-lg-device-layout="rd-navbar-fixed" data-xl-layout="rd-navbar-static"
+          data-xl-device-layout="rd-navbar-static" data-xxl-layout="rd-navbar-static"
+          data-xxl-device-layout="rd-navbar-static" data-lg-stick-up-offset="46px"
+          data-xl-stick-up-offset="46px" data-xxl-stick-up-offset="46px"
+          data-lg-stick-up="true" data-xl-stick-up="true" data-xxl-stick-up="true">
+          <div class="rd-navbar-main-outer">
+            <div class="rd-navbar-main">
+              <div class="rd-navbar-panel">
+                <div class="rd-navbar-brand">
+                  <a class="brand" href="galeria.html">
+                    <img src="imagenes/logo.png" alt="Logo"/>
+                  </a>
+                </div>
+                <button class="rd-navbar-toggle" data-rd-navbar-toggle=".rd-navbar-nav-wrap"><span></span></button>
+              </div>
+              <div class="rd-navbar-main-element">
+                <div class="rd-navbar-nav-wrap">
+                  <ul class="rd-navbar-nav">
+                    <li class="rd-nav-item"><a class="rd-nav-link" href="princi.html">INICIO</a></li>
+                    <li class="rd-nav-item"><a class="rd-nav-link" href="Videos.html">VIDEOS</a></li>
+                    <li class="rd-nav-item"><a class="rd-nav-link" href="about.html">BIOGRAFIA</a></li>
+                    <li class="rd-nav-item active"><a class="rd-nav-link" href="galeria.html">GALERIA</a></li>
+                    <li class="rd-nav-item"><a class="rd-nav-link" href="entrevistas.html">ENTREVISTAS</a></li>
+                    <li class="rd-nav-item"><a class="rd-nav-link" href="show en vivo/index.html">SHOW EN VIVO</a></li>
+                    <li class="rd-nav-item"><a class="rd-nav-link" href="Formulario.html">CONTACTANOS</a></li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </div>
+        </nav>
+      </div>
+    </header>
+
+    <!-- ══ GALLERY ══ -->
+    <section class="gallery-section">
+      <div class="gallery-title">GAL<span>E</span>RÍA</div>
+      <div class="gallery-subtitle">— colección fotográfica —</div>
+
+      <div class="slider-wrap">
+        <div class="slider-track-outer">
+          <div class="slider-track-inner">
+            <div class="slider-track" id="sliderTrack">
+
+              <div class="slide" data-index="0" data-src="imagenes/2.jpg" data-caption="Imagen 1">
+                <img src="imagenes/2.jpg" alt="Imagen 1" loading="lazy">
+                <div class="slide-caption"><div class="num">01 / GALERÍA</div><div class="title">Imagen 1</div></div>
+                <div class="slide-zoom-icon"><svg viewBox="0 0 24 24"><path d="M15.5 14h-.79l-.28-.27A6.471 6.471 0 0 0 16 9.5 6.5 6.5 0 1 0 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19l-4.99-5zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14z"/><path d="M12 10h-2v2H9v-2H7V9h2V7h1v2h2v1z"/></svg></div>
+              </div>
+
+              <div class="slide" data-index="1" data-src="imagenes/3.jpg" data-caption="Imagen 2">
+                <img src="imagenes/3.jpg" alt="Imagen 2" loading="lazy">
+                <div class="slide-caption"><div class="num">02 / GALERÍA</div><div class="title">Imagen 2</div></div>
+                <div class="slide-zoom-icon"><svg viewBox="0 0 24 24"><path d="M15.5 14h-.79l-.28-.27A6.471 6.471 0 0 0 16 9.5 6.5 6.5 0 1 0 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19l-4.99-5zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14z"/><path d="M12 10h-2v2H9v-2H7V9h2V7h1v2h2v1z"/></svg></div>
+              </div>
+
+              <div class="slide" data-index="2" data-src="imagenes/4.jpg" data-caption="Imagen 3">
+                <img src="imagenes/4.jpg" alt="Imagen 3" loading="lazy">
+                <div class="slide-caption"><div class="num">03 / GALERÍA</div><div class="title">Imagen 3</div></div>
+                <div class="slide-zoom-icon"><svg viewBox="0 0 24 24"><path d="M15.5 14h-.79l-.28-.27A6.471 6.471 0 0 0 16 9.5 6.5 6.5 0 1 0 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19l-4.99-5zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14z"/><path d="M12 10h-2v2H9v-2H7V9h2V7h1v2h2v1z"/></svg></div>
+              </div>
+
+              <div class="slide" data-index="3" data-src="imagenes/6.jpg" data-caption="Imagen 4">
+                <img src="imagenes/6.jpg" alt="Imagen 4" loading="lazy">
+                <div class="slide-caption"><div class="num">04 / GALERÍA</div><div class="title">Imagen 4</div></div>
+                <div class="slide-zoom-icon"><svg viewBox="0 0 24 24"><path d="M15.5 14h-.79l-.28-.27A6.471 6.471 0 0 0 16 9.5 6.5 6.5 0 1 0 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19l-4.99-5zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14z"/><path d="M12 10h-2v2H9v-2H7V9h2V7h1v2h2v1z"/></svg></div>
+              </div>
+
+              <div class="slide" data-index="4" data-src="imagenes/7.jpg" data-caption="Imagen 5">
+                <img src="imagenes/7.jpg" alt="Imagen 5" loading="lazy">
+                <div class="slide-caption"><div class="num">05 / GALERÍA</div><div class="title">Imagen 5</div></div>
+                <div class="slide-zoom-icon"><svg viewBox="0 0 24 24"><path d="M15.5 14h-.79l-.28-.27A6.471 6.471 0 0 0 16 9.5 6.5 6.5 0 1 0 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19l-4.99-5zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14z"/><path d="M12 10h-2v2H9v-2H7V9h2V7h1v2h2v1z"/></svg></div>
+              </div>
+
+            </div>
+            <div class="slider-progress"><div class="slider-progress-bar" id="progressBar"></div></div>
+          </div>
+
+          <div class="slider-counter"><span class="cur" id="sliderCur">1</span> / <span id="sliderTotal">5</span></div>
+          <div class="autoplay-btn" id="autoplayBtn"><div class="dot"></div><span>AUTO</span></div>
+        </div>
+
+        <div class="slider-arrow slider-prev" id="sliderPrev">
+          <svg viewBox="0 0 24 24"><path d="M15.41 7.41L14 6l-6 6 6 6 1.41-1.41L10.83 12z"/></svg>
+        </div>
+        <div class="slider-arrow slider-next" id="sliderNext">
+          <svg viewBox="0 0 24 24"><path d="M10 6L8.59 7.41 13.17 12l-4.58 4.59L10 18l6-6z"/></svg>
+        </div>
+
+        <div class="thumbs-wrap" id="thumbsWrap"></div>
+        <div class="dots-wrap" id="dotsWrap"></div>
+      </div>
+    </section>
+
+    <footer class="section footer-classic bg-default">
+      <div class="container">
+        <div class="row row-15">
+          <div class="col-sm-6">
+            <p class="rights">&copy; <span class="copyright-year"></span> Todos los derechos reservados
+              Diseño por el <a>Equipo de producción</a>
+            </p>
+          </div>
+        </div>
+      </div>
+    </footer>
+  </div>
+
+  <div class="snackbars" id="form-output-global"></div>
+  <script src="js/core.min.js"></script>
+  <script src="js/script.js"></script>
+
+  <script>
+  (function () {
+    const slides = Array.from(document.querySelectorAll('.slide'));
+    const total = slides.length;
+    const track = document.getElementById('sliderTrack');
+    const progressBar = document.getElementById('progressBar');
+    const thumbsWrap = document.getElementById('thumbsWrap');
+    const dotsWrap = document.getElementById('dotsWrap');
+    const sliderCur = document.getElementById('sliderCur');
+    document.getElementById('sliderTotal').textContent = total;
+
+    let current = 0;
+    let autoplay = true;
+    let autoInterval = null;
+    const AUTOPLAY_MS = 3500;
+
+    // Build thumbs & dots
+    slides.forEach((s, i) => {
+      const src = s.dataset.src;
+      const cap = s.dataset.caption;
+
+      const th = document.createElement('div');
+      th.className = 'thumb' + (i===0?' active':'');
+      th.innerHTML = `<img src="${src}" alt="${cap}" loading="lazy">`;
+      th.addEventListener('click', () => goTo(i));
+      thumbsWrap.appendChild(th);
+
+      const d = document.createElement('div');
+      d.className = 'dot-ind' + (i===0?' active':'');
+      d.addEventListener('click', () => goTo(i));
+      dotsWrap.appendChild(d);
+    });
+
+    function goTo(idx) {
+      current = (idx + total) % total;
+      track.style.transform = `translateX(-${current * 100}%)`;
+      sliderCur.textContent = current + 1;
+      document.querySelectorAll('.thumb').forEach((t,i) => t.classList.toggle('active', i===current));
+      document.querySelectorAll('.dot-ind').forEach((d,i) => d.classList.toggle('active', i===current));
+      resetProgress();
+      if (autoplay) startProgress();
+    }
+    function next() { goTo(current + 1); }
+    function prev() { goTo(current - 1); }
+
+    function resetProgress() {
+      progressBar.style.transition = 'none';
+      progressBar.style.width = '0%';
+      void progressBar.offsetWidth;
+    }
+    function startProgress() {
+      progressBar.style.transition = `width ${AUTOPLAY_MS}ms linear`;
+      progressBar.style.width = '100%';
+    }
+    function startAutoplay() {
+      clearInterval(autoInterval);
+      resetProgress(); startProgress();
+      autoInterval = setInterval(next, AUTOPLAY_MS);
+    }
+    function stopAutoplay() {
+      clearInterval(autoInterval);
+      resetProgress();
+    }
+
+    startAutoplay();
+
+    const autoBtn = document.getElementById('autoplayBtn');
+    autoBtn.addEventListener('click', () => {
+      autoplay = !autoplay;
+      autoBtn.classList.toggle('paused', !autoplay);
+      autoBtn.querySelector('span').textContent = autoplay ? 'AUTO' : 'PAUSE';
+      autoplay ? startAutoplay() : stopAutoplay();
+    });
+
+    document.getElementById('sliderPrev').addEventListener('click', () => { prev(); if(autoplay){stopAutoplay();startAutoplay();} });
+    document.getElementById('sliderNext').addEventListener('click', () => { next(); if(autoplay){stopAutoplay();startAutoplay();} });
+
+    // Touch swipe on slider
+    let tx = 0;
+    track.addEventListener('touchstart', e => { tx = e.touches[0].clientX; }, {passive:true});
+    track.addEventListener('touchend', e => {
+      const dx = e.changedTouches[0].clientX - tx;
+      if (Math.abs(dx) > 40) { dx<0?next():prev(); if(autoplay){stopAutoplay();startAutoplay();} }
+    });
+
+    // ── LIGHTBOX ──
+    const lbOverlay = document.getElementById('lbOverlay');
+    const lbImg = document.getElementById('lbImg');
+    const lbCaption = document.getElementById('lbCaption');
+    const lbCur = document.getElementById('lbCur');
+    const lbLabel = document.getElementById('lbLabel');
+    document.getElementById('lbTotal').textContent = total;
+    let lbIdx = 0;
+
+    function openLB(idx) {
+      lbIdx = (idx + total) % total;
+      const s = slides[lbIdx];
+      lbImg.style.opacity = '1';
+      lbImg.style.transform = 'translateX(0)';
+      lbImg.src = s.dataset.src;
+      lbCaption.textContent = s.dataset.caption;
+      lbCur.textContent = lbIdx + 1;
+      lbLabel.textContent = 'GALERÍA — ' + s.dataset.caption.toUpperCase();
+      lbOverlay.classList.add('active');
+      document.body.style.overflow = 'hidden';
+      stopAutoplay();
+    }
+    function closeLB() {
+      lbOverlay.classList.remove('active');
+      document.body.style.overflow = '';
+      if (autoplay) startAutoplay();
+    }
+    function lbNav(dir) {
+      lbIdx = (lbIdx + dir + total) % total;
+      lbImg.style.transition = 'opacity 0.18s ease, transform 0.18s ease';
+      lbImg.style.opacity = '0';
+      lbImg.style.transform = `translateX(${dir>0?'-28px':'28px'})`;
+      setTimeout(() => {
+        const s = slides[lbIdx];
+        lbImg.src = s.dataset.src;
+        lbCaption.textContent = s.dataset.caption;
+        lbCur.textContent = lbIdx + 1;
+        lbLabel.textContent = 'GALERÍA — ' + s.dataset.caption.toUpperCase();
+        lbImg.style.transition = 'opacity 0.3s ease, transform 0.3s ease';
+        lbImg.style.opacity = '1';
+        lbImg.style.transform = 'translateX(0)';
+      }, 200);
+    }
+
+    slides.forEach((s, i) => s.addEventListener('click', () => openLB(i)));
+    document.getElementById('lbClose').addEventListener('click', closeLB);
+    document.getElementById('lbPrev').addEventListener('click', () => lbNav(-1));
+    document.getElementById('lbNext').addEventListener('click', () => lbNav(1));
+    lbOverlay.addEventListener('click', e => { if(e.target === lbOverlay) closeLB(); });
+
+    document.addEventListener('keydown', e => {
+      if (!lbOverlay.classList.contains('active')) return;
+      if (e.key === 'ArrowRight') lbNav(1);
+      if (e.key === 'ArrowLeft') lbNav(-1);
+      if (e.key === 'Escape') closeLB();
+    });
+
+    let lbTx = 0;
+    lbOverlay.addEventListener('touchstart', e => { lbTx = e.touches[0].clientX; }, {passive:true});
+    lbOverlay.addEventListener('touchend', e => {
+      const dx = e.changedTouches[0].clientX - lbTx;
+      if (Math.abs(dx) > 40) lbNav(dx<0?1:-1);
+    });
+
+    // Copyright
+    document.querySelectorAll('.copyright-year').forEach(el => el.textContent = new Date().getFullYear());
+
+    goTo(0);
+  })();
+  </script>
+</body>
+</html>
