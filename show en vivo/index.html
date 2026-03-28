@@ -23,7 +23,7 @@
   width: 100% !important;
   max-width: 700px;
   height: auto !important;
-  aspect-ratio: 16/9; /* mantiene proporción */
+  aspect-ratio: 16/9;
   margin: 15px auto;
 }
 
@@ -204,13 +204,14 @@
       <div class="container">
         <div class="tabs-custom tabs-horizontal tabs-corporate" id="tabs-1">
           <ul class="nav nav-tabs">
-            <li class="nav-item"><a class="nav-link active" href="/princi.html"><span class="nav-link-main">INICIO</span></a></li>
-            <li class="nav-item"><a class="nav-link active" href="/Videos.html"><span class="nav-link-main">VIDEOS</span></a></li>
-            <li class="nav-item"><a class="nav-link" href="/about.html"><span class="nav-link-main">BIOGRAFIA</span></a></li>
-            <li class="nav-item"><a class="nav-link" href="/galeria.html"><span class="nav-link-main">GALERIA</span></a></li>
-            <li class="nav-item"><a class="nav-link" href="/entrevistas.html"><span class="nav-link-main">ENTREVISTAS</span></a></li>
-            <li class="nav-item"><a class="nav-link" href=""><span class="nav-link-main">SHOW EN VIVO</span></a></li>
-            <li class="nav-item"><a class="nav-link" href="../Formulario.html"><span class="nav-link-main">CONTACTANOS</span></a></li>
+            <!-- FIX: rutas sin "/" inicial para que funcionen relativas al archivo -->
+            <li class="nav-item"><a class="nav-link" href="princi.html"><span class="nav-link-main">INICIO</span></a></li>
+            <li class="nav-item"><a class="nav-link" href="Videos.html"><span class="nav-link-main">VIDEOS</span></a></li>
+            <li class="nav-item"><a class="nav-link" href="about.html"><span class="nav-link-main">BIOGRAFIA</span></a></li>
+            <li class="nav-item"><a class="nav-link" href="galeria.html"><span class="nav-link-main">GALERIA</span></a></li>
+            <li class="nav-item"><a class="nav-link" href="entrevistas.html"><span class="nav-link-main">ENTREVISTAS</span></a></li>
+            <li class="nav-item"><a class="nav-link active" href="index.html"><span class="nav-link-main">SHOW EN VIVO</span></a></li>
+            <li class="nav-item"><a class="nav-link" href="Formulario.html"><span class="nav-link-main">CONTACTANOS</span></a></li>
           </ul>
 
           <div class="tabs-custom tabs-horizontal tabs-gallery hide-on-modal" id="tabs-galery">
@@ -218,47 +219,35 @@
             <ul class="nav nav-tabs">
               <li class="nav-item"><a class="nav-link" href="#tabs-gallery-1" data-toggle="tab"><img src="images/2.jpg" width="180" height="180"/><span>TRIBUTO A LUIS MIGUEL BOLEROS MEDLEY</span></a></li>
               <li class="nav-item"><a class="nav-link" href="#tabs-gallery-2" data-toggle="tab"><img src="images/3.jpg" width="180" height="180"/><span>TRIBUTO A LUIS MIGUEL BALADAS MEDLEY</span></a></li>
-              <li class="nav-item"><a class="nav-link" href="#tabs-gallery-3" data-toggle="tab"><img src="../imagenes/Proximante.jpg" width="180" height="180"/><span>PROXIMAMENTE</span></a></li>
-              <li class="nav-item"><a class="nav-link" href="#tabs-gallery-4" data-toggle="tab"><img src="../imagenes/Proximante.jpg" width="180" height="180"/><span>PROXIMAMENTE</span></a></li>
-              <li class="nav-item"><a class="nav-link" href="#tabs-gallery-5" data-toggle="tab"><img src="../imagenes/Proximante.jpg" width="180" height="180"/><span>PROXIMAMENTE</span></a></li>
-              <li class="nav-item"><a class="nav-link" href="#tabs-gallery-6" data-toggle="tab"><img src="../imagenes/Proximante.jpg" width="180" height="180"/><span>PROXIMAMENTE</span></a></li>
-              <li class="nav-item"><a class="nav-link" href="#tabs-gallery-7" data-toggle="tab"><img src="../imagenes/Proximante.jpg" width="180" height="180"/><span>PROXIMAMENTE</span></a></li>
-              <li class="nav-item"><a class="nav-link" href="#tabs-gallery-8" data-toggle="tab"><img src="../imagenes/Proximante.jpg" width="180" height="180"/><span>PROXIMAMENTE</span></a></li>
-              <li class="nav-item"><a class="nav-link" href="#tabs-gallery-9" data-toggle="tab"><img src="../imagenes/Proximante.jpg" width="180" height="180"/><span>PROXIMAMENTE</span></a></li>
-              <li class="nav-item"><a class="nav-link" href="#tabs-gallery-10" data-toggle="tab"><img src="../imagenes/Proximante.jpg" width="180" height="180"/><span>PROXIMAMENTE</span></a></li>
+              <!-- FIX: rutas de imagenes "Proximamente" corregidas a ruta relativa correcta -->
+              <li class="nav-item"><a class="nav-link" href="#tabs-gallery-3" data-toggle="tab"><img src="images/Proximante.jpg" width="180" height="180"/><span>PROXIMAMENTE</span></a></li>
+              <li class="nav-item"><a class="nav-link" href="#tabs-gallery-4" data-toggle="tab"><img src="images/Proximante.jpg" width="180" height="180"/><span>PROXIMAMENTE</span></a></li>
+              <li class="nav-item"><a class="nav-link" href="#tabs-gallery-5" data-toggle="tab"><img src="images/Proximante.jpg" width="180" height="180"/><span>PROXIMAMENTE</span></a></li>
+              <li class="nav-item"><a class="nav-link" href="#tabs-gallery-6" data-toggle="tab"><img src="images/Proximante.jpg" width="180" height="180"/><span>PROXIMAMENTE</span></a></li>
+              <li class="nav-item"><a class="nav-link" href="#tabs-gallery-7" data-toggle="tab"><img src="images/Proximante.jpg" width="180" height="180"/><span>PROXIMAMENTE</span></a></li>
+              <li class="nav-item"><a class="nav-link" href="#tabs-gallery-8" data-toggle="tab"><img src="images/Proximante.jpg" width="180" height="180"/><span>PROXIMAMENTE</span></a></li>
+              <li class="nav-item"><a class="nav-link" href="#tabs-gallery-9" data-toggle="tab"><img src="images/Proximante.jpg" width="180" height="180"/><span>PROXIMAMENTE</span></a></li>
+              <li class="nav-item"><a class="nav-link" href="#tabs-gallery-10" data-toggle="tab"><img src="images/Proximante.jpg" width="180" height="180"/><span>PROXIMAMENTE</span></a></li>
             </ul>
 
             <!-- Tab panes -->
             <div class="tab-content">
-  <!-- Show 1 -->
-<div class="tab-pane fade" id="tabs-gallery-1">
-  <div class="gallery-wrap">
-    <a class="back-to-gallery button-link" href="#">
-      <span class="novi-icon fa fa-angle-left"></span>
-      <span>Volver al inicio de Shows</span>
-    </a>
 
-    <!-- Contenedor principal -->
-    <div style="position: relative; width: 700px; height: 400px; margin: 20px auto;
-                background: url('images/4.jpg') center/cover no-repeat;
-                border-radius: 12px; overflow: hidden;">
-      
-      <!-- Botón de YouTube (solo este) -->
-      <a href="https://www.youtube.com/watch?v=iYoAQBUNUKg" target="_blank" 
-         class="youtube-button">
-        <!-- LOGO DE YOUTUBE TRANSPARENTE -->
-        <svg width="60" height="40" viewBox="0 0 24 24" fill="red">
-          <path d="M10 15l5.19-3L10 9v6z"></path>
-        </svg>
-      </a>
-    </div>
-  </div>
-</div>
-
-    </div>
-  </div>
-</div>
-
+              <!-- Show 1 -->
+              <div class="tab-pane fade" id="tabs-gallery-1">
+                <div class="gallery-wrap">
+                  <a class="back-to-gallery button-link" href="#" onclick="return backToGallery()">
+                    <span class="novi-icon fa fa-angle-left"></span>
+                    <span>Volver al inicio de Shows</span>
+                  </a>
+                  <div style="position: relative; width: 700px; height: 400px; margin: 20px auto;
+                              background: url('images/4.jpg') center/cover no-repeat;
+                              border-radius: 12px; overflow: hidden;">
+                    <a href="https://www.youtube.com/watch?v=iYoAQBUNUKg" target="_blank" class="youtube-button">
+                      <svg width="60" height="40" viewBox="0 0 24 24" fill="red">
+                        <path d="M10 15l5.19-3L10 9v6z"></path>
+                      </svg>
+                    </a>
                   </div>
                 </div>
               </div>
@@ -266,7 +255,7 @@
               <!-- Show 2 -->
               <div class="tab-pane fade" id="tabs-gallery-2">
                 <div class="gallery-wrap">
-                  <a class="back-to-gallery button-link" href="#"><span class="novi-icon fa fa-angle-left"></span><span>Volver al inicio de Shows</span></a>
+                  <a class="back-to-gallery button-link" href="#" onclick="return backToGallery()"><span class="novi-icon fa fa-angle-left"></span><span>Volver al inicio de Shows</span></a>
                   <div class="youtube-container" style="position: relative; width: 700px; height: 345px; margin: 15px auto; background: url('images/3.jpg') center/cover no-repeat; border-radius: 12px; overflow: hidden;">
                     <div class="youtube-button" onclick="loadYoutube(this)" data-video-id="RHteJeXiQYE">
                       <svg width="60" height="40" viewBox="0 0 24 24" fill="red"><path d="M10 15l5.19-3L10 9v6z"></path></svg>
@@ -275,12 +264,11 @@
                 </div>
               </div>
 
-              <!-- Shows 3-10 (Proximamente, puedes reemplazar IDs después) -->
-              <!-- Copia y cambia data-video-id -->
+              <!-- Show 3 -->
               <div class="tab-pane fade" id="tabs-gallery-3">
                 <div class="gallery-wrap">
-                  <a class="back-to-gallery button-link" href="#tabs-galery"><span class="novi-icon fa fa-angle-left"></span><span>Volver al inicio de Shows</span></a>
-                  <div class="youtube-container" style="position: relative; width: 700px; height: 345px; margin: 15px auto; background: url('../imagenes/Proximante.jpg') center/cover no-repeat; border-radius: 12px; overflow: hidden;">
+                  <a class="back-to-gallery button-link" href="#" onclick="return backToGallery()"><span class="novi-icon fa fa-angle-left"></span><span>Volver al inicio de Shows</span></a>
+                  <div class="youtube-container" style="position: relative; width: 700px; height: 345px; margin: 15px auto; background: url('images/Proximante.jpg') center/cover no-repeat; border-radius: 12px; overflow: hidden;">
                     <div class="youtube-button" onclick="loadYoutube(this)" data-video-id="">
                       <svg width="60" height="40" viewBox="0 0 24 24" fill="red"><path d="M10 15l5.19-3L10 9v6z"></path></svg>
                     </div>
@@ -288,139 +276,129 @@
                 </div>
               </div>
 
-             <!-- Shows 4-10 (Proximamente, puedes reemplazar IDs después) -->
-              <!-- Copia y cambia data-video-id -->
+              <!-- Show 4 -->
               <div class="tab-pane fade" id="tabs-gallery-4">
                 <div class="gallery-wrap">
-                  <a class="back-to-gallery button-link" href="#tabs-galery"><span class="novi-icon fa fa-angle-left"></span><span>Volver al inicio de Shows</span></a>
-                  <div class="youtube-container" style="position: relative; width: 700px; height: 345px; margin: 15px auto; background: url('../imagenes/Proximante.jpg') center/cover no-repeat; border-radius: 12px; overflow: hidden;">
+                  <a class="back-to-gallery button-link" href="#" onclick="return backToGallery()"><span class="novi-icon fa fa-angle-left"></span><span>Volver al inicio de Shows</span></a>
+                  <div class="youtube-container" style="position: relative; width: 700px; height: 345px; margin: 15px auto; background: url('images/Proximante.jpg') center/cover no-repeat; border-radius: 12px; overflow: hidden;">
                     <div class="youtube-button" onclick="loadYoutube(this)" data-video-id="">
                       <svg width="60" height="40" viewBox="0 0 24 24" fill="red"><path d="M10 15l5.19-3L10 9v6z"></path></svg>
                     </div>
                   </div>
                 </div>
               </div>
-<!-- Shows 5-10 (Proximamente, puedes reemplazar IDs después) -->
-              <!-- Copia y cambia data-video-id -->
+
+              <!-- Show 5 -->
               <div class="tab-pane fade" id="tabs-gallery-5">
                 <div class="gallery-wrap">
-                  <a class="back-to-gallery button-link" href="#tabs-galery"><span class="novi-icon fa fa-angle-left"></span><span>Volver al inicio de Shows</span></a>
-                  <div class="youtube-container" style="position: relative; width: 700px; height: 345px; margin: 15px auto; background: url('../imagenes/Proximante.jpg') center/cover no-repeat; border-radius: 12px; overflow: hidden;">
+                  <a class="back-to-gallery button-link" href="#" onclick="return backToGallery()"><span class="novi-icon fa fa-angle-left"></span><span>Volver al inicio de Shows</span></a>
+                  <div class="youtube-container" style="position: relative; width: 700px; height: 345px; margin: 15px auto; background: url('images/Proximante.jpg') center/cover no-repeat; border-radius: 12px; overflow: hidden;">
                     <div class="youtube-button" onclick="loadYoutube(this)" data-video-id="">
                       <svg width="60" height="40" viewBox="0 0 24 24" fill="red"><path d="M10 15l5.19-3L10 9v6z"></path></svg>
-            </div>
-          </div>
-        </div>
-      </div>
-      <!-- Shows 6-10 (Proximamente, puedes reemplazar IDs después) -->
-              <!-- Copia y cambia data-video-id -->
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Show 6 -->
               <div class="tab-pane fade" id="tabs-gallery-6">
                 <div class="gallery-wrap">
-                  <a class="back-to-gallery button-link" href="#tabs-galery"><span class="novi-icon fa fa-angle-left"></span><span>Volver al inicio de Shows</span></a>
-                  <div class="youtube-container" style="position: relative; width: 700px; height: 345px; margin: 15px auto; background: url('../imagenes/Proximante.jpg') center/cover no-repeat; border-radius: 12px; overflow: hidden;">
+                  <a class="back-to-gallery button-link" href="#" onclick="return backToGallery()"><span class="novi-icon fa fa-angle-left"></span><span>Volver al inicio de Shows</span></a>
+                  <div class="youtube-container" style="position: relative; width: 700px; height: 345px; margin: 15px auto; background: url('images/Proximante.jpg') center/cover no-repeat; border-radius: 12px; overflow: hidden;">
                     <div class="youtube-button" onclick="loadYoutube(this)" data-video-id="">
                       <svg width="60" height="40" viewBox="0 0 24 24" fill="red"><path d="M10 15l5.19-3L10 9v6z"></path></svg>
-            </div>
-          </div>
-    </section>
-  </div>
-<!-- Shows 7-10 (Proximamente, puedes reemplazar IDs después) -->
-              <!-- Copia y cambia data-video-id -->
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Show 7 -->
               <div class="tab-pane fade" id="tabs-gallery-7">
                 <div class="gallery-wrap">
-                  <a class="back-to-gallery button-link" href="#tabs-galery"><span class="novi-icon fa fa-angle-left"></span><span>Volver al inicio de Shows</span></a>
-                  <div class="youtube-container" style="position: relative; width: 700px; height: 345px; margin: 15px auto; background: url('../imagenes/Proximante.jpg') center/cover no-repeat; border-radius: 12px; overflow: hidden;">
+                  <a class="back-to-gallery button-link" href="#" onclick="return backToGallery()"><span class="novi-icon fa fa-angle-left"></span><span>Volver al inicio de Shows</span></a>
+                  <div class="youtube-container" style="position: relative; width: 700px; height: 345px; margin: 15px auto; background: url('images/Proximante.jpg') center/cover no-repeat; border-radius: 12px; overflow: hidden;">
                     <div class="youtube-button" onclick="loadYoutube(this)" data-video-id="">
                       <svg width="60" height="40" viewBox="0 0 24 24" fill="red"><path d="M10 15l5.19-3L10 9v6z"></path></svg>
-            </div>
-          </div>
-        </div>
-      </div>
-      <!-- Shows 8-10 (Proximamente, puedes reemplazar IDs después) -->
-              <!-- Copia y cambia data-video-id -->
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Show 8 -->
               <div class="tab-pane fade" id="tabs-gallery-8">
                 <div class="gallery-wrap">
-                  <a class="back-to-gallery button-link" href="#tabs-galery"><span class="novi-icon fa fa-angle-left"></span><span>Volver al inicio de Shows</span></a>
-                  <div class="youtube-container" style="position: relative; width: 700px; height: 345px; margin: 15px auto; background: url('../imagenes/Proximante.jpg') center/cover no-repeat; border-radius: 12px; overflow: hidden;">
+                  <a class="back-to-gallery button-link" href="#" onclick="return backToGallery()"><span class="novi-icon fa fa-angle-left"></span><span>Volver al inicio de Shows</span></a>
+                  <div class="youtube-container" style="position: relative; width: 700px; height: 345px; margin: 15px auto; background: url('images/Proximante.jpg') center/cover no-repeat; border-radius: 12px; overflow: hidden;">
                     <div class="youtube-button" onclick="loadYoutube(this)" data-video-id="">
                       <svg width="60" height="40" viewBox="0 0 24 24" fill="red"><path d="M10 15l5.19-3L10 9v6z"></path></svg>
-            </div>
-          </div>
-        </div>
-      </div>
-      <!-- Shows 9-10 (Proximamente, puedes reemplazar IDs después) -->
-              <!-- Copia y cambia data-video-id -->
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Show 9 -->
               <div class="tab-pane fade" id="tabs-gallery-9">
                 <div class="gallery-wrap">
-                  <a class="back-to-gallery button-link" href="#tabs-galery"><span class="novi-icon fa fa-angle-left"></span><span>Volver al inicio de Shows</span></a>
-                  <div class="youtube-container" style="position: relative; width: 700px; height: 345px; margin: 15px auto; background: url('../imagenes/Proximante.jpg') center/cover no-repeat; border-radius: 12px; overflow: hidden;">
+                  <a class="back-to-gallery button-link" href="#" onclick="return backToGallery()"><span class="novi-icon fa fa-angle-left"></span><span>Volver al inicio de Shows</span></a>
+                  <div class="youtube-container" style="position: relative; width: 700px; height: 345px; margin: 15px auto; background: url('images/Proximante.jpg') center/cover no-repeat; border-radius: 12px; overflow: hidden;">
                     <div class="youtube-button" onclick="loadYoutube(this)" data-video-id="">
                       <svg width="60" height="40" viewBox="0 0 24 24" fill="red"><path d="M10 15l5.19-3L10 9v6z"></path></svg>
-            </div>
-          </div>
-        </div>
-      </div>
-      <!-- Shows 10-10 (Proximamente, puedes reemplazar IDs después) -->
-              <!-- Copia y cambia data-video-id -->
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Show 10 -->
               <div class="tab-pane fade" id="tabs-gallery-10">
                 <div class="gallery-wrap">
-                  <a class="back-to-gallery button-link" href="#tabs-galery"><span class="novi-icon fa fa-angle-left"></span><span>Volver al inicio de Shows</span></a>
-                  <div class="youtube-container" style="position: relative; width: 700px; height: 345px; margin: 15px auto; background: url('../imagenes/Proximante.jpg') center/cover no-repeat; border-radius: 12px; overflow: hidden;">
+                  <a class="back-to-gallery button-link" href="#" onclick="return backToGallery()"><span class="novi-icon fa fa-angle-left"></span><span>Volver al inicio de Shows</span></a>
+                  <div class="youtube-container" style="position: relative; width: 700px; height: 345px; margin: 15px auto; background: url('images/Proximante.jpg') center/cover no-repeat; border-radius: 12px; overflow: hidden;">
                     <div class="youtube-button" onclick="loadYoutube(this)" data-video-id="">
                       <svg width="60" height="40" viewBox="0 0 24 24" fill="red"><path d="M10 15l5.19-3L10 9v6z"></path></svg>
-            </div>
-          </div>
-        </div>
-      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+            </div><!-- /tab-content -->
+          </div><!-- /tabs-galery -->
+        </div><!-- /tabs-1 -->
+      </div><!-- /container -->
+    </section>
+
+  </div><!-- /page -->
+
   <!-- Javascript -->
   <script src="js/core.min.js"></script>
   <script src="js/script.js"></script>
   <script>
-    
-  function loadYoutube(button) {
-    const videoId = button.getAttribute("data-video-id");
-    const container = button.parentElement;
+    /* FIX: función loadYoutube definida UNA SOLA VEZ */
+    function loadYoutube(button) {
+      const videoId = button.getAttribute("data-video-id");
+      if (!videoId) return; // no hace nada si no hay ID todavía
+      const container = button.parentElement;
+      container.innerHTML = `
+        <iframe width="700" height="345" src="https://www.youtube.com/embed/${videoId}?autoplay=1"
+          frameborder="0" allow="autoplay; encrypted-media" allowfullscreen
+          style="border-radius:12px; width:100%; height:100%;">
+        </iframe>
+      `;
+    }
 
-    container.innerHTML = `
-      <iframe width="700" height="345" src="https://www.youtube.com/embed/${videoId}?autoplay=1"
-        frameborder="0" allow="autoplay; encrypted-media" allowfullscreen
-        style="border-radius:12px; width:100%; height:100%;">
-      </iframe>
-    `;
-  }
+    /* FIX: función backToGallery para el botón "Volver" */
+    function backToGallery() {
+      const wrapper = document.getElementById('tabs-galery');
+      if (!wrapper) return true;
+
+      const activeLink = wrapper.querySelector('.nav-tabs .nav-link.active');
+      if (activeLink) activeLink.classList.remove('active');
+
+      const activePane = wrapper.querySelector('.tab-content .tab-pane.show, .tab-content .tab-pane.active');
+      if (activePane) activePane.classList.remove('show', 'active');
+
+      wrapper.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      return false;
+    }
   </script>
 </body>
 </html>
-<script>
-  function loadYoutube(button) {
-    const videoId = button.getAttribute("data-video-id");
-    const container = button.parentElement;
-
-    container.innerHTML = `
-      <iframe width="700" height="345" src="https://www.youtube.com/embed/${videoId}?autoplay=1"
-        frameborder="0" allow="autoplay; encrypted-media" allowfullscreen
-        style="border-radius:12px; width:100%; height:100%;">
-      </iframe>
-    `;
-  }
-
-  // ← NUEVO: volver a la grilla de miniaturas sin recargar
-  function backToGallery() {
-    const wrapper = document.getElementById('tabs-galery'); // ¡ojo: "galery" con 1 L!
-    if (!wrapper) return true; // si no existe, deja seguir el enlace
-
-    // Quitar activo del tab seleccionado (miniatura)
-    const activeLink = wrapper.querySelector('.nav-tabs .nav-link.active');
-    if (activeLink) activeLink.classList.remove('active');
-
-    // Ocultar el contenido del show abierto
-    const activePane = wrapper.querySelector('.tab-content .tab-pane.show, .tab-content .tab-pane.active');
-    if (activePane) activePane.classList.remove('show', 'active');
-
-    // Hacer scroll suave hasta las miniaturas
-    wrapper.scrollIntoView({ behavior: 'smooth', block: 'start' });
-
-    // Evitar navegación del enlace
-    return false;
-  }
-</script>
